@@ -18,5 +18,7 @@ Route::get('/', function () {
     return view('homepage');
 });
 
+Route::post('users/login', [UsersController::class, 'login'])->name('users.login');
 Route::resource('users', UsersController::class);
+
 

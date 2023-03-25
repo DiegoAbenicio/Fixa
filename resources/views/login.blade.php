@@ -22,30 +22,35 @@
 								<div class="card-front">
 									<div class="center-wrap">
 
+                                        <form action="{{route('users.login')}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="section text-center">
+                                                <h4 class="mb-4 pb-3">Entrar</h4>
+                                                <div class="form-group">
+                                                    <input type="email" class="form-style" placeholder="Email">
+                                                    <i class="input-icon uil uil-at"></i>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group mt-2 col-md-10">
+                                                        <input type="password" class="form-style" id="password2" name="password2" placeholder="Senha">
+                                                        <i class="input-icon uil uil-lock-alt"></i>
+                                                    </div>
 
-										<div class="section text-center">
-											<h4 class="mb-4 pb-3">Entrar</h4>
-											<div class="form-group">
-												<input type="email" class="form-style" placeholder="Email">
-												<i class="input-icon uil uil-at"></i>
-											</div>
-											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Senha">
-												<i class="input-icon uil uil-lock-alt"></i>
-											</div>
-											<button href="" class="btn mt-4">Entrar</button>
-                                            <p class="mb-0 mt-4 text-center"><a href="" class="link">Esqueceu a sua senha?</a></p>
-				      					</div>
-
+                                                    <div class="form-group mt-2 col-md-2">
+                                                        <button type="button" onclick="toggleLoginVisibility()"><i class="input-icon uil uil-eye eyeicon"></i></button>
+                                                    </div>
+                                                </div>
+                                                <button href="submit" class="btn mt-4">Entrar</button>
+                                                <p class="mb-0 mt-4 text-center"><a href="" class="link">Esqueceu a sua senha?</a></p>
+                                            </div>
+                                        </form>
 
 			      					</div>
 			      				</div>
 								<div class="card-back">
 									<div class="center-wrap">
-
-                                        <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
+                                        <form action="{{route('users.store')}}" method="POST" enctype="multipart/form-data">
                                             @csrf
-
                                             <div class="section text-center">
                                                 <h4 class="mb-3 pb-3">Registrar</h4>
                                                 <div class="form-group">
@@ -53,28 +58,31 @@
                                                     <i class="input-icon uil uil-user"></i>
                                                 </div>
                                                 <div class="form-row">
-                                                    <div class="form-group col-md-4 mt-2">
+                                                    <div class="form-group mt-2 col-md-4 ">
                                                         <input type="tel" class="form-style" maxlength="4" id="ddd" name="ddd" placeholder="DDD">
                                                         <i class="input-icon uil uil-globe"></i>
-
                                                     </div>
-                                                    <div class="form-group col-md-8 mt-2">
+                                                    <div class="form-group mt-2 col-md-8 ">
                                                         <input type="tel" class="form-style" maxlength="11" id="cell" name="cell" placeholder="Número de Telefone">
                                                         <i class="input-icon uil uil-phone"></i>
                                                     </div>
                                                 </div>
-                                                <div class="form-group mt-2">
+                                                <div class="form-group mt-2 ">
                                                     <input type="email" class="form-style" id="email" name="email" placeholder="Email">
                                                     <i class="input-icon uil uil-at"></i>
                                                 </div>
-                                                <div class="form-group mt-2">
-                                                    <input type="password" class="form-style" id="password" name="password" placeholder="Senha">
-                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                <div class="form-row">
+                                                    <div class="form-group mt-2 col-md-10">
+                                                        <input type="password" class="form-style" id="password" name="password" placeholder="Senha">
+                                                        <i class="input-icon uil uil-lock-alt"></i>
+                                                    </div>
+                                                    <div class="form-group mt-2 col-md-2">
+                                                        <button type="button" onclick="toggleRegisterVisibility()"><i class="input-icon uil uil-eye eyeicon"></i></button>
+                                                    </div>
                                                 </div>
                                                 <button href="submit" class="btn mt-4">Registrar</button>
                                             </div>
                                         </form>
-
 			      					</div>
 			      				</div>
 			      			</div>
@@ -84,5 +92,27 @@
 	      	</div>
 	    </div>
 	</div>
+
+
+    <script>
+    function toggleLoginVisibility() {
+        var passwordInput = document.getElementById('password2');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+        } else {
+            passwordInput.type = 'password';
+        }
+    }
+
+    function toggleRegisterVisibility() {
+        var passwordInput = document.getElementById('password');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+        } else {
+            passwordInput.type = 'password';
+        }
+    }
+    </script>
+
 </body>
 </html>
