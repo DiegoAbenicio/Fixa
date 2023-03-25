@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Users;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -12,7 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        return view('login');
     }
 
     /**
@@ -28,7 +29,20 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->merge(['number' => $request->ddd . $request->cell]);
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'number' => 'required',
+            'password' => 'required',
+        ]);
+
+        Users::create($request->all());
+
+        return view('login');
+
     }
 
     /**
