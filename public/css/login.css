@@ -4,13 +4,21 @@
     --primarycolor: #e571be;
     --mouseover: #ff6281;
 }
-
+.wrong{
+    color: rgb(232, 47, 75);
+}
+.correct{
+    color: rgb(79, 246, 143);
+}
 .eyeicon {
     color: var(--primarycolor);
     background-color: #2B2E38;
     border: #000000;
 }
-
+.eyeicon:hover{
+    color: var(--mouseover);
+    transform: scale(1.2);
+}
 body {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
@@ -71,7 +79,7 @@ h6 span {
     height: 36px;
     border-radius: 50%;
     color: var(--primarycolor);
-    background-color: #020305;
+    background-color: #2b2e38;
     font-family: "unicons";
     content: "\eb4f";
     z-index: 20;
@@ -187,7 +195,7 @@ h6 span {
     color: #000000;
 }
 .btn:hover {
-    background-color: #000000;
-    color: var(--primarycolor);
+    background-color: #1f2029;
+    color: var(--mouseover);
     box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
 }

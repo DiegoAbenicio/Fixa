@@ -15,7 +15,7 @@
 				<div class="col-12 text-center align-self-center py-5">
 					<div class="section pb-5 pt-5 pt-sm-2 text-center">
 						<h6 class="mb-0 pb-3"><span>Entrar </span><span>Registrar</span></h6>
-			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+			          	<input class="checkbox" {{ session('checkbox') ? 'checked' : '' }} type="checkbox" id="reg-log" name="reg-log"/>
 			          	<label for="reg-log"></label>
 						<div class="card-3d-wrap mx-auto">
 							<div class="card-3d-wrapper">
@@ -40,6 +40,19 @@
                                                         <button type="button" onclick="toggleLoginVisibility()"><i class="input-icon uil uil-eye eyeicon"></i></button>
                                                     </div>
                                                 </div>
+                                                
+                                                @if (session('error'))
+                                                    <div id="error-message-one" class="alert form-group mt-2 wrong">
+                                                        {{ session('error') }}
+                                                    </div>
+                                                @endif
+
+                                                @if (session('success'))
+                                                    <div class="alert form-group mt-2 correct">
+                                                        {{ session('success') }}
+                                                    </div>
+                                                @endif
+
                                                 <button href="submit" class="btn mt-4">Entrar</button>
                                                 <p class="mb-0 mt-4 text-center"><a href="" class="link">Esqueceu a sua senha?</a></p>
                                             </div>
@@ -80,6 +93,13 @@
                                                         <button type="button" onclick="toggleRegisterVisibility()"><i class="input-icon uil uil-eye eyeicon"></i></button>
                                                     </div>
                                                 </div>
+
+                                                @if (session('error'))
+                                                    <div id="error-message-two" class="alert form-group mt-2 wrong">
+                                                        {{ session('error') }}
+                                                    </div>
+                                                @endif
+
                                                 <button href="submit" class="btn mt-4">Registrar</button>
                                             </div>
                                         </form>
@@ -112,6 +132,11 @@
             passwordInput.type = 'password';
         }
     }
+
+    document.getElementById('reg-log').onclick = function() {
+        document.getElementById('error-message-one').style.display = 'none';
+        document.getElementById('error-message-two').style.display = 'none';
+    };
     </script>
 
 </body>
