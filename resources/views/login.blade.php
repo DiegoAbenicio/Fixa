@@ -27,7 +27,7 @@
                                             <div class="section text-center">
                                                 <h4 class="mb-4 pb-3">Entrar</h4>
                                                 <div class="form-group">
-                                                    <input type="email" class="form-style" placeholder="Email">
+                                                    <input type="email" class="form-style" placeholder="Email" id="email2" name="email2">
                                                     <i class="input-icon uil uil-at"></i>
                                                 </div>
                                                 <div class="form-row">

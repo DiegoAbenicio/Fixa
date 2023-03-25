@@ -39,11 +39,19 @@ class UsersController extends Controller
 
     public function login(Request $request)
     {
-        $emails = Users::query()->find($request->email);
-        $passwords = Users::query()->find($request->password);
-
-        
-
+        $email = $request->email2;
+        $password = $request->password2;
+        $user = Users::where('email', $email)->first();
+        if ($user) {
+            $word = Users::where('password', $password)->first();
+            if($word){
+                return redirect('hub');
+            }else{
+                return redirect()->back();
+            }
+        } else {
+            return redirect()->back();
+        }
 
     }
 
