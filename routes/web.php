@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+
 Route::post('users/login', [UsersController::class, 'login'])->name('users.login');
 Route::resource('users', UsersController::class);
 
 
+Route::get('/login', [IndexController::class, 'login'])->name('movetologin');
+Route::get('/register', [IndexController::class, 'register'])->name('movetoregister');

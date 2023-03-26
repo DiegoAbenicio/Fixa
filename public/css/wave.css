@@ -1,0 +1,50 @@
+:root {
+    --primarycolor: #e571be;
+    --secundarycolor: #ff6281;
+    --primarybackground: #1f2029;
+    --secundarybackground: #2b2e38;
+}
+body{
+    overflow-x: hidden;
+}
+.svg-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.svg-background svg {
+    width: 100%;
+    height: 100%;
+}
+.block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primarybackground);
+}
+.right {
+    animation: moveOutRight 5s forwards;
+}
+.left {
+    animation: moveOutLeft 5s forwards;
+}
+@keyframes moveOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+@keyframes moveOutLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
