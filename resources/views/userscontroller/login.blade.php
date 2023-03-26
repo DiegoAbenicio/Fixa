@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
 </head>
 <body>
 	<div class="section">
@@ -40,7 +41,7 @@
                                                         <button type="button" onclick="toggleLoginVisibility()"><i class="input-icon uil uil-eye eyeicon"></i></button>
                                                     </div>
                                                 </div>
-                                                
+
                                                 @if (session('error'))
                                                     <div id="error-message-one" class="alert form-group mt-2 wrong">
                                                         {{ session('error') }}

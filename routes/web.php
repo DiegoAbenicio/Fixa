@@ -15,7 +15,7 @@ use App\Http\Controllers\UsersController;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('index');
 });
 
 Route::post('users/login', [UsersController::class, 'login'])->name('users.login');
