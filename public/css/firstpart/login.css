@@ -4,15 +4,6 @@
 .correct {
     color: rgb(79, 246, 143);
 }
-.eyeicon {
-    color: var(--primarycolor);
-    background-color: var(--secundarybackground);
-    border: #000000;
-}
-.eyeicon:hover {
-    color: var(--secundarycolor);
-    transform: scale(1.2);
-}
 body {
     font-family: "Poppins", sans-serif;
     font-weight: 300;

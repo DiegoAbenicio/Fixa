@@ -1,0 +1,51 @@
+body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--primarycolor);
+    background-color: var(--primarybackground);
+}
+.top-bar {
+    height: 3em;
+    background-color: var(--secundarybackground);
+}
+.barra {
+    color: var(--primarycolor) !important;
+    position: relative;
+}
+.search-container {
+    position: relative;
+    width: 40%;
+}
+.form-control {
+
+    background-color: transparent;
+    border-color: transparent;
+    width: 93%;
+}
+.searchicon {
+    background-color: transparent;
+    position: absolute;
+    top: 20%;
+    right: 4%;
+}
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: var(--primarybackground);
+    border-color: var(--primarybackground);
+}
+.search-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primarybackground);
+    border-radius: 50px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}

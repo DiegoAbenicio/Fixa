@@ -59,7 +59,8 @@ class UsersController extends Controller
             if ($user) {
                 $word = Users::where('password', $password)->first();
                 if($word){
-                    return redirect('hub');
+                    session()->put('user_id', $user->id);
+                    return redirect('/hub');
                 }else{
                     session()->flash('checkbox', false);
                     session()->flash('error', 'Senha incorreta');

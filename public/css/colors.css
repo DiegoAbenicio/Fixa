@@ -5,3 +5,12 @@
     --primarybackground: #1f2029;
     --secundarybackground: #2b2e38;
 }
+.icons{
+    color: var(--primarycolor);
+    background-color: var(--secundarybackground);
+    border: #000000;
+}
+.icons:hover {
+    color: var(--secundarycolor);
+    transform: scale(1.2);
+}

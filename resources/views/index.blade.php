@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="{{ asset('css/colors.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/index.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/firstpart/index.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/wave.css') }}" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="{{ asset('img/logo.jpg') }}">
 </head>

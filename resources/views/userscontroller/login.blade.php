@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link href="{{ asset('css/colors.css') }}" rel="stylesheet" type="text/css">
-  <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/firstpart/login.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/wave.css') }}" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="{{ asset('img/logo.jpg') }}">
 </head>
@@ -17,7 +17,7 @@
             <path d="M0,400 C150,300 350,500 500,400 L500,500 L0,500 Z" style="stroke: none; fill: var(--primarycolor);"></path>
         </svg>
     </div>
-    <div class="block left"></div>
+    <div class="block right"></div>
 	<div class="section">
 		<div class="container">
 			<div class="row full-height justify-content-center">
@@ -46,7 +46,7 @@
                                                     </div>
 
                                                     <div class="form-group mt-2 col-md-2">
-                                                        <button type="button" onclick="toggleLoginVisibility()"><i class="input-icon uil uil-eye eyeicon"></i></button>
+                                                        <button type="button" onclick="toggleLoginVisibility()"><i class="input-icon uil uil-eye icons"></i></button>
                                                     </div>
                                                 </div>
 
@@ -99,7 +99,7 @@
                                                         <i class="input-icon uil uil-lock-alt"></i>
                                                     </div>
                                                     <div class="form-group mt-2 col-md-2">
-                                                        <button type="button" onclick="toggleRegisterVisibility()"><i class="input-icon uil uil-eye eyeicon"></i></button>
+                                                        <button type="button" onclick="toggleRegisterVisibility()"><i class="input-icon uil uil-eye icons"></i></button>
                                                     </div>
                                                 </div>
 
