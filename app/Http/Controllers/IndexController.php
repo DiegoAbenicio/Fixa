@@ -10,12 +10,12 @@ class IndexController extends Controller
     public function login()
     {
         session()->flash('checkbox', false);
-        return view('userscontroller.login');
+        return redirect('/users');
     }
 
     public function register()
     {
         session()->flash('checkbox', true);
-        return view('userscontroller.login');
+        return redirect('/users');
     }
 }

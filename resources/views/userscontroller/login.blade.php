@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
   <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/wave.css') }}" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
+  <link rel="icon" type="image/png" href="{{ asset('img/logo.jpg') }}">
 </head>
 <body>
     <div class="svg-background">

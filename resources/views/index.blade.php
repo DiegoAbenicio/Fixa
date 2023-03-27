@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="{{ asset('css/index.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/wave.css') }}" rel="stylesheet" type="text/css">
-    <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/logo.jpg') }}">
 </head>
 <body>
     <div class="svg-background">
@@ -28,7 +28,7 @@
                                 <div class="form-row d-flex">
                                         <div class="form-group d-flex">
                                             <div class="align-self-start">
-                                                <img src="{{ asset('img/logo.png') }}" class="img-fluid m-6" style="max-width: 40px;">
+                                                <img src="{{ asset('img/logo.jpg') }}" class="img-fluid m-6" style="max-width: 40px;">
                                             </div>
                                                 <div style="margin-left: 10px;">
                                                 <h2>Fixa</h2>
