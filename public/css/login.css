@@ -1,11 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
-
-:root {
-    --primarycolor: #e571be;
-    --secundarycolor: #ff6281;
-    --primarybackground: #1f2029;
-    --secundarybackground: #2b2e38;
-}
 .wrong {
     color: rgb(232, 47, 75);
 }

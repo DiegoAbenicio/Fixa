@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="{{ asset('css/colors.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/wave.css') }}" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="{{ asset('img/logo.jpg') }}">

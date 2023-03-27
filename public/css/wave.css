@@ -1,9 +1,3 @@
-:root {
-    --primarycolor: #e571be;
-    --secundarycolor: #ff6281;
-    --primarybackground: #1f2029;
-    --secundarybackground: #2b2e38;
-}
 body{
     overflow-x: hidden;
 }
