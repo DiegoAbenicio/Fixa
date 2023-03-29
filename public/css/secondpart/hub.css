@@ -1,0 +1,7 @@
+form {
+    background-color: var(--secundarybackground);
+}
+
+.form-control {
+    background-color: var(--primarybackground);
+}
