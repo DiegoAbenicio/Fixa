@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\HubController;
+use App\Http\Controllers\JobOffersController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\ServicesCaughtController;
+use App\Http\Controllers\WorkersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +30,7 @@ Route::post('users/login', [UsersController::class, 'login'])->name('users.login
 
 Route::resource('users', UsersController::class);
 Route::resource('hub', HubController::class);
+Route::resource('joboffers', JobOffersController::class);
 
 Route::get('/login', [IndexController::class, 'login'])->name('movetologin');
 Route::get('/register', [IndexController::class, 'register'])->name('movetoregister');

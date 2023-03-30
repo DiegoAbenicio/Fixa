@@ -1,7 +1,17 @@
-form {
+.box {
     background-color: var(--secundarybackground);
+    padding: 1.5%;
+    margin: 8% 0 0 10%;
+    display: block;
+    max-width: 45%;
 }
 
-.form-control {
+.box .form-control{
     background-color: var(--primarybackground);
+    color: var(--primarycolor) !important;
+}
+
+.textspace{
+    min-height: 120px;
+    max-height: 160px;
 }
