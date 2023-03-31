@@ -5,7 +5,7 @@
     --primarybackground: #1f2029;
     --secundarybackground: #2b2e38;
 }
-.icons{
+.icons {
     color: var(--primarycolor);
     background-color: var(--secundarybackground);
     border: #000000;
