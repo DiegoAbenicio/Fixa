@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Users extends Model
+class Users extends Authenticatable
 {
-    use HasFactory;
-
+    // Define as colunas que podem ser preenchidas em massa
     protected $fillable = [
         'name',
         'email',
@@ -16,4 +14,14 @@ class Users extends Model
         'number'
     ];
 
+    // Define as colunas que não podem ser atribuídas em massa
+    protected $guarded = [
+        'id'
+    ];
+
+    // Define a coluna que deve ser usada para autenticação
+    public function getAuthIdentifierName()
+    {
+        return 'email';
+    }
 }
