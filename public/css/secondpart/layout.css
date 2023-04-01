@@ -23,7 +23,7 @@ body {
   }
 }
 .dropdown-menu.show {
-  max-width: 250px;
+  max-width: 550px;
   animation: slideLeft 1s ease-in-out;
 }
 .dropdown-item {

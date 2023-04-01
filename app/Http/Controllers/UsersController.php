@@ -71,18 +71,23 @@ class UsersController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
+
+            //Usuario Logado com sucesso
             return redirect('/hub');
         }
 
         if(!Auth::attempt($credentials)){
 
+            //Valida se ao menos o email está cadastrado
             $user = Users::where('email', $request->email2)->first();
 
             if($user){
+                //Caso o email esteja cadastrado, retorna a mensagem de senha incorreta
                 session()->flash('checkbox', false);
                 session()->flash('error', 'Senha incorreta');
                 return redirect()->back();
             } else{
+                //Caso o email não esteja cadastrado, retorna a mensagem informando a ausência de cadastro
                 session()->flash('checkbox', false);
                 session()->flash('error', 'Email não cadastrado');
                 return redirect()->back();

@@ -26,37 +26,52 @@
     <div class="block right"></div>
 
 
+
     <nav class="navbar navbar-expand-lg navbar-light top-bar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('img/logo.jpg') }}" class="img-fluid m-6" style="max-width: 40px;">
             </a>
-            <form class="d-flex search-container">
-                <input class="form-control  rounded-pill barra" type="search" placeholder="Encontre profissionais">
-                <button class="btn rounded-pill" type="submit"><i class="input-icon uil uil-search searchicon icons"></i></button>
-            </form>
+            @if (auth()->check())
+                <form class="d-flex search-container">
+                    <input class="form-control  rounded-pill barra" type="search" placeholder="Encontre profissionais">
+                    <button class="btn rounded-pill" type="submit"><i class="input-icon uil uil-search searchicon icons"></i></button>
+                </form>
+            @endif
             <ul class="navbar-nav mb-2 mb-lg-0">
+                @if (auth()->check())
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="input-icon uil uil-constructor icons "></i></a>
                 </li>
                 <div class="dropdown rounded-pill dropdownstyle">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Users<i class="input-icon uil uil-user icons ml-2"></i>
+                            {{ auth()->user()->name }} <i class="input-icon uil uil-user icons ml-2"></i>
+                            @if (!auth()->check())
+                                User <i class="input-icon uil uil-user icons ml-2"></i>
+                            @endif
                     </a>
-
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="#"><i class="input-icon uil uil-user"></i>Perfil</a>
                         <a class="dropdown-item" href="#"><i class="input-icon uil uil-question-circle"></i>Help</a>
                         <a class="dropdown-item" href="#"><i class="input-icon uil uil-sign-out-alt"></i>Sair</a>
                     </div>
                 </div>
+                @else
+                    <li class="nav-item">
+                    <form action="{{route('movetologin')}}" method="GET" enctype="multipart/form-data">
+                        @csrf
+                        <div class="loginbox">
+                            <button  href="submit" class="formbtn formbtnnav" >Login</button>
+                        </div>
+                    </form>
+                    </li>
+                @endif
             </ul>
         </div>
     </nav>
-    <div>
-
-        @yield('content')
-    </div>
+        <div>
+            @yield('content')
+        </div>
     <script>
         document.querySelector('#dropdownMenuLink').addEventListener('click', function (event) {
             event.stopPropagation();

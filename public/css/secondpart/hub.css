@@ -5,6 +5,14 @@
     max-width: 40%;
     min-height: 500px;
 }
+.blackbox{
+    padding: 5%;
+    background-color: var(--primarybackground);
+    align-items: center;
+}
+.blackbox img, p{
+    margin-left: 24%;
+}
 .formbtn {
     border-radius: 4px;
     height: 44px;
@@ -25,6 +33,10 @@
     border: none;
     margin-left: 40%;
 
+}
+.formbtnnav{
+    margin-top: 0;
+    margin-right: 3em;
 }
 .formbtn:hover {
     background-color: var(--primarybackground);
