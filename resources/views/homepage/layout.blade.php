@@ -43,9 +43,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="input-icon uil uil-constructor icons "></i></a>
                 </li>
+                @php
+                    $name = auth()->user()->name;
+                @endphp
+
                 <div class="dropdown rounded-pill dropdownstyle">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ auth()->user()->name }} <i class="input-icon uil uil-user icons ml-2"></i>
+                            {{ ucfirst(strtolower(strtok($name, ' '))) }} <i class="input-icon uil uil-user icons ml-2"></i>
                             @if (!auth()->check())
                                 User <i class="input-icon uil uil-user icons ml-2"></i>
                             @endif

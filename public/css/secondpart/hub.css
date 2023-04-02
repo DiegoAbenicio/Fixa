@@ -10,8 +10,11 @@
     background-color: var(--primarybackground);
     align-items: center;
 }
-.blackbox img, p{
+.blackbox img{
     margin-left: 24%;
+}
+.blackbox p{
+    margin-left: 16%;
 }
 .formbtn {
     border-radius: 4px;

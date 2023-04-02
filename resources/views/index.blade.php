@@ -49,22 +49,32 @@
                     <div class="full-height justify-content-center">
                         <div class="text-center align-self-center py-5">
                             <div class="center-wrap boxdescripition ">
-                                <div>
-                                    <form action="{{route('movetologin')}}" method="GET" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="loginbox">
-                                            <h6>Já possui Cadastrado?</h6>
-                                            <button  href="submit" class="btn" >Logar</button>
-                                        </div>
-                                    </form>
-                                    <form action="{{route('movetoregister')}}" method="GET" enctype="multipart/form-data>">
-                                        @csrf
-                                        <div class="loginbox">
-                                            <h6>Não possui Cadastro?</h6>
-                                            <button  href="submit" class="btn">Cadastrar</button>
-                                        </div>
-                                    </form>
-                                </div>
+
+                                    <div>
+                                        @if (!auth()->check())
+                                            <form action="{{route('movetologin')}}" method="GET" enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="loginbox">
+                                                    <h6>Já possui Cadastrado?</h6>
+                                                    <button  href="submit" class="btn" >Logar</button>
+                                                </div>
+                                            </form>
+                                        @else
+                                            <div class="loginbox">
+                                                <h6>Já possui Cadastrado?</h6>
+                                                <a href="http://127.0.0.1:8000/hub" class="btn">
+                                                    Logar
+                                                </a>
+                                            </div>
+                                        @endif
+                                        <form action="{{route('movetoregister')}}" method="GET" enctype="multipart/form-data>">
+                                            @csrf
+                                            <div class="loginbox">
+                                                <h6>Não possui Cadastro?</h6>
+                                                <button  href="submit" class="btn">Cadastrar</button>
+                                            </div>
+                                        </form>
+                                    </div>
                             </div>
                         <div>
                     </div>

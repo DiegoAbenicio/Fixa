@@ -7,6 +7,8 @@
     @if (auth()->check())
         <form class="was-validate" action="{{ route('joboffers.store') }}" method="POST" enctype="multipart/form-data">
 
+            <input type="hidden" id="users_id" value="{{ auth()->user()->id }}">
+
             <div class="form-row col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group col-md-8">
                     <strong>Profissional</strong>
@@ -38,7 +40,7 @@
         </form>
     @else
         <div class="blackbox">
-            <p>por favor, logue no site somos legais!!.</p>
+            <p>Por favor, faça o login no site, nós somos legais!!</p>
             <img src="{{ asset('img/please.jpg') }}" class="img-fluid" style="max-height: 20em">
             <form action="{{route('movetologin')}}" method="GET" enctype="multipart/form-data">
                 @csrf
