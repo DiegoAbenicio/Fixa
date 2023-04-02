@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Joboffers;
 
 class JobOffersController extends Controller
 {
@@ -36,6 +37,10 @@ class JobOffersController extends Controller
             'value' => 'required',
             'description' => 'required',
         ]);
+
+        Joboffers::create($request->all());
+
+        return redirect('http://127.0.0.1:8000/hub');
     }
 
     /**
