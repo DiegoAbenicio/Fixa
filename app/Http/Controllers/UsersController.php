@@ -108,6 +108,9 @@ class UsersController extends Controller
         return redirect('/');
     }
 
+    public function config(){
+        return view('homepage.personalcontrol.update');
+    }
     public function show(string $id)
     {
         //

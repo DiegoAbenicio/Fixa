@@ -1,0 +1,13 @@
+.boxUp {
+    background-color: var(--secundarybackground);
+    margin: 3.5% 0 0 5%;
+    padding-top: 1.7%;
+    max-width: 90%;
+    height: 600px;
+}
+
+.userinfo{
+    background-color: var(--primarybackground);
+    max-width: 40%;
+    min-height: 550px;
+}

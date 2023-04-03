@@ -10,6 +10,7 @@
   <link href="{{ asset('css/wave.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/secondpart/layout.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/secondpart/hub.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/secondpart/update.css') }}" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="{{ asset('img/logo.jpg') }}">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -52,7 +53,7 @@
                             @endif
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#"><i class="input-icon uil uil-user"></i>Perfil</a>
+                        <a class="dropdown-item" href="{{ route('config') }}"><i class="input-icon uil uil-user"></i>Perfil</a>
                         <a class="dropdown-item" href="#"><i class="input-icon uil uil-question-circle"></i>Help</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"><i class="input-icon uil uil-sign-out-alt"></i>Sair</a>
                     </div>
