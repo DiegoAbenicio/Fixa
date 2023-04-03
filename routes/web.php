@@ -28,9 +28,11 @@ Route::get('/', function () {
 Route::post('users/login', [UsersController::class, 'login'])->name('users.login');
 
 
+
 Route::resource('users', UsersController::class);
 Route::resource('hub', HubController::class);
 Route::resource('joboffers', JobOffersController::class);
 
+Route::get('/logout', [UsersController::class, 'logout'])->name('logout');
 Route::get('/login', [IndexController::class, 'login'])->name('movetologin');
 Route::get('/register', [IndexController::class, 'register'])->name('movetoregister');

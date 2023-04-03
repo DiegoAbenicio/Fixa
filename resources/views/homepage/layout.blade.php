@@ -24,9 +24,6 @@
         </svg>
     </div>
     <div class="block right"></div>
-
-
-
     <nav class="navbar navbar-expand-lg navbar-light top-bar">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -57,7 +54,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item" href="#"><i class="input-icon uil uil-user"></i>Perfil</a>
                         <a class="dropdown-item" href="#"><i class="input-icon uil uil-question-circle"></i>Help</a>
-                        <a class="dropdown-item" href="#"><i class="input-icon uil uil-sign-out-alt"></i>Sair</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"><i class="input-icon uil uil-sign-out-alt"></i>Sair</a>
                     </div>
                 </div>
                 @else

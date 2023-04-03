@@ -5,16 +5,28 @@
     max-width: 40%;
     min-height: 500px;
 }
+.box .formbtn{
+    margin-left: 35%;
+}
+.box .texto{
+    margin-left: 2.5%;
+}
 .blackbox{
     padding: 5%;
     background-color: var(--primarybackground);
-    align-items: center;
+    display: grid;
+    justify-content: center;
 }
-.blackbox img{
-    margin-left: 24%;
+.imgcenter{
+    display: grid;
+    justify-content: center;
 }
-.blackbox p{
-    margin-left: 16%;
+.imgcenter img{
+    max-height: 20em
+}
+.btncenter{
+    display: grid;
+    justify-content: center;
 }
 .formbtn {
     border-radius: 4px;
@@ -30,12 +42,11 @@
     display: -ms-inline-flexbox;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     background-color: var(--primarycolor);
     color: #000000;
     margin-top: 10px;
     border: none;
-    margin-left: 35%;
-
 }
 .formbtnnav{
     margin-top: 0;
@@ -53,7 +64,4 @@
 .textspace{
     min-height: 120px;
     max-height: 150px;
-}
-.textplace{
-    margin-left: 2.5%;
 }

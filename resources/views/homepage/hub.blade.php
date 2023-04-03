@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="form-group textplace">
+            <div class="form-group texto">
                 <strong>Descrição</strong>
                 <textarea class="form-control textspace" id="description" name="description" placeholder="Entre com a descrição" required></textarea>
             </div>
@@ -44,11 +44,15 @@
     @else
         <div class="blackbox">
             <p>Por favor, faça o login no site, nós somos legais!!</p>
-            <img src="{{ asset('img/please.jpg') }}" class="img-fluid" style="max-height: 20em">
-            <form action="{{route('movetologin')}}" method="GET" enctype="multipart/form-data">
-                @csrf
-                <button  href="submit" class="formbtn" >Login</button>
-            </form>
+            <div class="imgcenter">
+                <img src="{{ asset('img/please.jpg') }}" class="img-fluid">
+                <div class="btncenter">
+                    <form action="{{route('movetologin')}}" method="GET" enctype="multipart/form-data">
+                        @csrf
+                        <button  href="submit" class="formbtn" >Login</button>
+                    </form>
+                </div>
+            </div>
         </div>
     @endif
 </div>
