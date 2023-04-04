@@ -65,3 +65,14 @@
     min-height: 120px;
     max-height: 150px;
 }
+.danger{
+    background-color: var(--danger) !important;
+}
+.danger:hover{
+    color: var(--textdanger);
+    background-color: var(--secundarydanger) !important;
+
+}
+.good:hover{
+    color: var(--textgood);
+}
