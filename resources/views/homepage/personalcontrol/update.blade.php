@@ -10,9 +10,9 @@
             <div class="userinfo">
                 <div class="profile-pic-container rounded-circle">
                     <label for="profile-pic-input">
-                        <img src="{{ asset('img/please.jpg') }}" class="profile-pic rounded-circle">
+                        <img src="{{ asset('uploads/' . auth()->user()->icon) }}" class="profile-pic rounded-circle">
                     </label>
-                    <input id="profile-pic-input" type="file" class="d-none">
+                    <input id="profile-pic-input" name="icon" type="file" class="d-none">
                 </div>
                 <div class="userdates">
                     <div class="form-row col-xs-12 col-sm-12 col-md-12">
@@ -32,16 +32,16 @@
                     </div>
                 </div>
                 <div class="button-wrapper">
-                    <button href="submit" class="formbtn good changeback">Salvar</button>
-                    <form action="{{ route('users.destroy', auth()->user()->id) }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        @method('DELETE')
-                        <button class="formbtn danger" onclick="return confirm('Tem certeza que deseja excluir sua conta?')">Deletar Conta</button>
-                    </form>
+                    <button type="submit" class="formbtn good changeback">Salvar</button>
+
                 </div>
-            </div>
 
+        </form>
 
+        <form action="{{ route('users.destroy', auth()->user()->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('DELETE')
+            <button class="formbtn danger" onclick="return confirm('Tem certeza que deseja excluir sua conta?')">Deletar Conta</button>
         </form>
     </div>
 

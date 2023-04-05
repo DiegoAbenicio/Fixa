@@ -36,6 +36,8 @@ class UsersController extends Controller
 
         $request->merge(['password' => $password]);
 
+        $request->merge(['icon' => 'default_icon.jpg']);
+
         try {
             Users::create($request->all());
             session()->flash('success', 'Usuário cadastrado com sucesso');
@@ -136,6 +138,15 @@ class UsersController extends Controller
         $users->number = $request->input('number');
         $users->email = $request->input('email');
 
+        if ($request->hasFile('icon')) {
+            if ($request->file('icon')->isValid()) {
+                $file = $request->file('icon');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('uploads'), $filename);
+                $users->icon = $filename;
+            }
+        }
+
         $users->save();
         return redirect()->back();
 
@@ -148,6 +159,5 @@ class UsersController extends Controller
 
         Auth::logout();
 
-        return view('index');
     }
 }
