@@ -3,8 +3,10 @@
 
 <div class="boxUp col-md-6">
     <div>
-        <form class="was-validate" action="{{ route('users.update', auth()->user()->id) }}" method="PUT" enctype="multipart/form-data">
+        <form class="was-validate" action="{{ route('users.update', auth()->user()->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
+
             <div class="userinfo">
                 <div class="profile-pic-container rounded-circle">
                     <label for="profile-pic-input">
@@ -26,12 +28,16 @@
                     </div>
                     <div class="form-group fixemail">
                         <strong>Email</strong>
-                        <input type="text" class="form-control" id="address" name="address" value="{{ auth()->user()->email }}" required>
+                        <input type="text" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" required>
                     </div>
                 </div>
                 <div class="button-wrapper">
-                    <button class="formbtn good changeback">Salvar</button>
-                    <button class="formbtn danger">Deletar Conta</button>
+                    <button href="submit" class="formbtn good changeback">Salvar</button>
+                    <form action="{{ route('users.destroy', auth()->user()->id) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('DELETE')
+                        <button class="formbtn danger" onclick="return confirm('Tem certeza que deseja excluir sua conta?')">Deletar Conta</button>
+                    </form>
                 </div>
             </div>
 

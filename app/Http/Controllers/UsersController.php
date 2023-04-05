@@ -123,11 +123,31 @@ class UsersController extends Controller
 
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'email' => 'required|email',
+            'number' => 'required',
+            'name' => 'required',
+        ]);
+
+
+        $users = Users::find($id);
+
+        $users->name = $request->input('name');
+        $users->number = $request->input('number');
+        $users->email = $request->input('email');
+
+        $users->save();
+        return redirect()->back();
+
     }
 
     public function destroy(string $id)
     {
-        //
+        $users = Users::find($id);
+        $users ->delete();
+
+        Auth::logout();
+
+        return view('index');
     }
 }
