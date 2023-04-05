@@ -44,6 +44,15 @@
 
         </form>
     </div>
+
+    <div class="boxDownLeft">
+
+    </div>
+
+    <div class="boxDownRight">
+
+    </div>
+
 </div>
 
 @endsection

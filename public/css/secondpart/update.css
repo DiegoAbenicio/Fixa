@@ -5,6 +5,20 @@
     max-width: 90%;
     height: 600px;
 }
+.boxDownLeft {
+    background-color: var(--primarybackground);
+    display: flex;
+    height: 62%;
+    max-width: 30%;
+    margin-top: 1.3%;
+}
+.boxDownRight {
+    background-color: var(--secundarycolor);
+    display: block;
+    height: 62%;
+    max-width: 30%;
+    margin-top: 1.3%;
+}
 .userinfo {
     background-color: var(--primarybackground);
     max-width: 100%;
@@ -25,23 +39,23 @@
     height: 100%;
     object-fit: cover;
 }
-.userdates{
+.userdates {
     padding-left: 5%;
 }
-.fixemail{
+.fixemail {
     padding-left: 2.3%;
 }
-.boxUp .form-group input{
+.boxUp .form-group input {
     min-width: 300px;
     background-color: var(--secundarybackground);
     color: var(--secundarycolor);
 }
 .button-wrapper {
-  display: grid;
-  justify-content: flex-end;
-  align-items: center;
-  height: 100%;
-  padding: 0 5% 0 12.5%;
+    display: grid;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding: 0 5% 0 12.5%;
 }
 .changeback:hover {
     background-color: var(--secundarybackground);
