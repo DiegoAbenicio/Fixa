@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Services;
 use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
@@ -111,7 +112,9 @@ class UsersController extends Controller
     }
 
     public function config(){
-        return view('homepage.personalcontrol.update');
+
+        $service = Services::all();
+        return view('homepage.personalcontrol.update', compact('service'));
     }
     public function show(string $id)
     {

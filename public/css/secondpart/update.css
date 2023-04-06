@@ -8,15 +8,14 @@
 .boxDownLeft {
     background-color: var(--primarybackground);
     display: flex;
-    height: 62%;
-    max-width: 30%;
-    margin-top: 1.3%;
+    max-height: 23.8em;
+    overflow-x: auto;
+    margin: 1.3% 4% 0% 2%;
 }
 .boxDownRight {
-    background-color: var(--secundarycolor);
+    background-color: var(--primarybackground);
     display: block;
-    height: 62%;
-    max-width: 30%;
+    height: 23.8em;
     margin-top: 1.3%;
 }
 .userinfo {
@@ -60,4 +59,30 @@
 }
 .changeback:hover {
     background-color: var(--secundarybackground);
+}
+.table{
+    color: var(--primarycolor);
+    background-color: var(--secundarybackground);
+}
+.backtable{
+    background-color: var(--primarybackground);
+}
+.table-bordered th, .table-bordered td {
+  border-color: var(--primarybackground) !important;
+}
+table .uil{
+    font-size: 140%;
+    padding-left: 20%
+}
+.backtable .uil-times{
+    padding-left: 2%
+}
+table .sizeimg .uil{
+    padding-left: 20%
+}
+.uil-check{
+    color: var(--textgood);
+}
+.uil-times{
+    color: var(--textdanger);
 }

@@ -1,6 +1,8 @@
 @extends('homepage.layout')
 @section('content')
 
+
+@if (auth()->check())
 <div class="boxUp col-md-6">
     <div>
         <form class="was-validate" action="{{ route('users.update', auth()->user()->id) }}" method="POST" enctype="multipart/form-data">
@@ -44,15 +46,37 @@
             <button class="formbtn danger" onclick="return confirm('Tem certeza que deseja excluir sua conta?')">Deletar Conta</button>
         </form>
     </div>
-
-    <div class="boxDownLeft">
-
-    </div>
-
-    <div class="boxDownRight">
-
-    </div>
-
 </div>
+
+<div class="form-row">
+    <div class="boxDownLeft col-md-4" scrollbar>
+        <table class="table table-bordered">
+            <tr class="backtable">
+                <th>Funções disponíveis</th>
+                <th><i class="uil uil-check "></i> OR <i class=" uil uil-times"></i></th>
+            </tr>
+            @foreach ($service as $key => $value)
+                <tr class="sizeimg">
+                    <td>{{ $value->name }}</td>
+                    <td>
+                        <a href=""><i class="uil uil-check "></i></a>
+                        <a href=""><i class="uil uil-times"></i></a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
+    <div class="boxDownRight col-md-7">
+    </div>
+</div>
+
+@else
+
+    <div class="blackbox">
+            LOGUE NO SITE PARA ACESSAR ESTES CONTÉUDOS
+    </div>
+
+@endif
+
 
 @endsection
