@@ -70,6 +70,22 @@
 .table-bordered th, .table-bordered td {
   border-color: var(--primarybackground) !important;
 }
+.havethis{
+    background-color: var(--textgood);
+    color: var(--primarybackground);
+}
+.havethis .fiximg a{
+    color: var(--primarybackground);
+    transition: font-size 0.3s ease-in-out;
+}
+.dontthis .fiximg a{
+    color: var(--primarycolor);
+    transition: font-size 0.3s ease-in-out;
+}
+.sizeimg .fiximg a:hover{
+    text-decoration: none !important;
+    font-size: 113%;
+}
 table .uil{
     font-size: 140%;
     padding-left: 20%
@@ -78,7 +94,10 @@ table .uil{
     padding-left: 2%
 }
 table .sizeimg .uil{
-    padding-left: 20%
+    padding-left: 1%;
+}
+table .sizeimg .fiximg{
+     padding-left: 10%;
 }
 .uil-check{
     color: var(--textgood);

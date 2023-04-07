@@ -33,7 +33,8 @@ Route::resource('users', UsersController::class);
 Route::resource('hub', HubController::class);
 Route::resource('joboffers', JobOffersController::class);
 
-
+Route::get('/add', [WorkersController::class, 'add'])->name('add');
+Route::get('/delete', [WorkersController::class, 'delete'])->name('delete');
 Route::get('/config', [UsersController::class, 'config'])->name('config');
 Route::get('/logout', [UsersController::class, 'logout'])->name('logout');
 Route::get('/login', [IndexController::class, 'login'])->name('movetologin');

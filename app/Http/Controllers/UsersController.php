@@ -8,6 +8,7 @@ use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -113,8 +114,28 @@ class UsersController extends Controller
 
     public function config(){
 
-        $service = Services::all();
-        return view('homepage.personalcontrol.update', compact('service'));
+        $user_id = auth()->user()->id;
+
+        $userservices = DB::table('services')
+        ->whereExists(function ($query) use ($user_id) {
+            $query->select(DB::raw(1))
+                ->from('workers')
+                ->whereRaw('workers.services_id = services.id')
+                ->where('workers.users_id', $user_id);
+        })
+        ->get();
+
+        $service = DB::table('services')
+        ->whereNotExists(function ($query) use ($user_id) {
+            $query->select(DB::raw(1))
+                ->from('workers')
+                ->whereRaw('workers.services_id = services.id')
+                ->where('workers.users_id', $user_id);
+        })
+        ->get();
+
+
+        return view('homepage.personalcontrol.update', compact('service', 'userservices'));
     }
     public function show(string $id)
     {

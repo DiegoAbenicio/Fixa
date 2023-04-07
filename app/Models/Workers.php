@@ -11,6 +11,6 @@ class Workers extends Model
 
     protected $fillable = [
         'services_id',
-        'workers_id',
+        'users_id',
     ];
 }

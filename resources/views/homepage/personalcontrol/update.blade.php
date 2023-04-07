@@ -55,12 +55,21 @@
                 <th>Funções disponíveis</th>
                 <th><i class="uil uil-check "></i> OR <i class=" uil uil-times"></i></th>
             </tr>
-            @foreach ($service as $key => $value)
-                <tr class="sizeimg">
+            @foreach ($userservices as $key => $value)
+                <tr class="sizeimg havethis">
                     <td>{{ $value->name }}</td>
-                    <td>
-                        <a href=""><i class="uil uil-check "></i></a>
-                        <a href=""><i class="uil uil-times"></i></a>
+                    <td class="fiximg">
+                        <a href="{{ route('delete', ['services_id' => $value->id, 'users_id' => auth()->user()->id]) }}">Remove<i class="uil uil-times"></i></a>
+                    </td>
+                </tr>
+            @endforeach
+
+
+            @foreach ($service as $key => $value)
+                <tr class="sizeimg dontthis">
+                    <td>{{ $value->name }}</td>
+                    <td class="fiximg ">
+                        <a href="{{ route('add', ['services_id' => $value->id, 'users_id' => auth()->user()->id]) }}">Add<i class="uil uil-check "></i></a>
                     </td>
                 </tr>
             @endforeach

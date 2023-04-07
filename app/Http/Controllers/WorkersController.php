@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Workers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WorkersController extends Controller
 {
@@ -21,6 +23,24 @@ class WorkersController extends Controller
     public function create()
     {
         //
+    }
+
+    public function add(Request $request){
+        Workers::create($request->all());
+        return redirect()->back();
+    }
+
+    public function delete(Request $request){
+        $services_id = $request->services_id;
+        $users_id = $request->users_id;
+
+        DB::table('workers')
+            ->where('services_id', $services_id)
+            ->where('users_id', $users_id)
+            ->delete();
+
+
+        return redirect()->back();
     }
 
     /**
