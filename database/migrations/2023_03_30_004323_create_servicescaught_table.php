@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('users_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('services_id')->constrained('services')->onDelete('cascade');
             $table->foreignId('workers_id')->constrained('services')->onDelete('cascade');
-            $table->string('address');
+            $table->string('address_id')->constrained('address')->onDelete('cascade');
             $table->string('data');
             $table->string('value');
             $table->text('description');

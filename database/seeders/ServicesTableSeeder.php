@@ -27,6 +27,8 @@ class ServicesTableSeeder extends Seeder
             ['name' => 'Técnico TI'],
             ['name' => 'Jardineiro'],
             ['name' => 'Limpador de Piscina'],
+            ['name' => 'Cozinheiro'],
+            ['name' => 'Adestrador'],
             // adicione mais linhas aqui se desejar
         ]);
     }

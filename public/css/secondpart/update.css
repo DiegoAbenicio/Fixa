@@ -105,3 +105,6 @@ table .sizeimg .fiximg{
 .uil-times{
     color: var(--textdanger);
 }
+.boxDownRight .form-group .form-row{
+    padding-left: 1em;
+}

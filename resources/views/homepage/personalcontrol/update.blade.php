@@ -75,10 +75,63 @@
             @endforeach
         </table>
     </div>
-    <div class="boxDownRight col-md-7">
-        
-
+   <div class="boxDownRight col-md-7">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <strong>Rua</strong>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <strong>Bairro</strong>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <strong>Cidade</strong>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <strong>Estado</strong>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <strong>Rua</strong>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-4">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <strong>Cidade</strong>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <button>teste</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 @else
