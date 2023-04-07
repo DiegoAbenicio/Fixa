@@ -52,14 +52,14 @@
     <div class="boxDownLeft col-md-4" scrollbar>
         <table class="table table-bordered">
             <tr class="backtable">
-                <th>Funções disponíveis</th>
+                <th>Profissões</th>
                 <th><i class="uil uil-check "></i> OR <i class=" uil uil-times"></i></th>
             </tr>
             @foreach ($userservices as $key => $value)
                 <tr class="sizeimg havethis">
                     <td>{{ $value->name }}</td>
                     <td class="fiximg">
-                        <a href="{{ route('delete', ['services_id' => $value->id, 'users_id' => auth()->user()->id]) }}">Remove<i class="uil uil-times"></i></a>
+                        <a href="{{ route('delete', ['services_id' => $value->id, 'users_id' => auth()->user()->id]) }}">Remover<i class="uil uil-times"></i></a>
                     </td>
                 </tr>
             @endforeach
@@ -76,6 +76,8 @@
         </table>
     </div>
     <div class="boxDownRight col-md-7">
+        
+
     </div>
 </div>
 

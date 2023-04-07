@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Services;
 use App\Models\Users;
+use ErrorException;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
@@ -114,28 +115,34 @@ class UsersController extends Controller
 
     public function config(){
 
-        $user_id = auth()->user()->id;
+        try{
+            $user_id = auth()->user()->id;
 
-        $userservices = DB::table('services')
-        ->whereExists(function ($query) use ($user_id) {
-            $query->select(DB::raw(1))
-                ->from('workers')
-                ->whereRaw('workers.services_id = services.id')
-                ->where('workers.users_id', $user_id);
-        })
-        ->get();
+            $userservices = DB::table('services')
+            ->whereExists(function ($query) use ($user_id) {
+                $query->select(DB::raw(1))
+                    ->from('workers')
+                    ->whereRaw('workers.services_id = services.id')
+                    ->where('workers.users_id', $user_id);
+            })
+            ->get();
 
-        $service = DB::table('services')
-        ->whereNotExists(function ($query) use ($user_id) {
-            $query->select(DB::raw(1))
-                ->from('workers')
-                ->whereRaw('workers.services_id = services.id')
-                ->where('workers.users_id', $user_id);
-        })
-        ->get();
+            $service = DB::table('services')
+            ->whereNotExists(function ($query) use ($user_id) {
+                $query->select(DB::raw(1))
+                    ->from('workers')
+                    ->whereRaw('workers.services_id = services.id')
+                    ->where('workers.users_id', $user_id);
+            })
+            ->get();
 
 
-        return view('homepage.personalcontrol.update', compact('service', 'userservices'));
+            return view('homepage.personalcontrol.update', compact('service', 'userservices'));
+        }catch(ErrorException $e){
+            return view('homepage.personalcontrol.update');
+        }
+
+
     }
     public function show(string $id)
     {
@@ -157,7 +164,7 @@ class UsersController extends Controller
 
 
         $users = Users::find($id);
-
+        $oldIcon = $users->icon;
         $users->name = $request->input('name');
         $users->number = $request->input('number');
         $users->email = $request->input('email');
@@ -168,6 +175,11 @@ class UsersController extends Controller
                 $filename = time() . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path('uploads'), $filename);
                 $users->icon = $filename;
+
+                if (!empty($oldIcon) && file_exists(public_path('uploads/' . $oldIcon)) && $oldIcon != 'default_icon.jpg') {
+                    unlink(public_path('uploads/' . $oldIcon));
+                }
+
             }
         }
 

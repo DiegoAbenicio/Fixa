@@ -27,7 +27,7 @@
     <div class="block right"></div>
     <nav class="navbar navbar-expand-lg navbar-light top-bar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="hub">
                 <img src="{{ asset('img/logo.jpg') }}" class="img-fluid m-6" style="max-width: 40px;">
             </a>
             @if (auth()->check())
