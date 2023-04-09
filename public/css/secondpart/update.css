@@ -108,3 +108,11 @@ table .sizeimg .fiximg{
 .boxDownRight .form-group .form-row{
     padding-left: 1em;
 }
+.btnendereco{
+    margin-left: 5em;
+    max-width: 80px;
+    margin-top: 1.2em;
+}
+.boxDownRight .form-group{
+    margin-bottom: 0.5em;
+}

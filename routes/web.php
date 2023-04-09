@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\IndexController;
@@ -32,6 +33,7 @@ Route::post('users/login', [UsersController::class, 'login'])->name('users.login
 Route::resource('users', UsersController::class);
 Route::resource('hub', HubController::class);
 Route::resource('joboffers', JobOffersController::class);
+Route::resource('address', AddressesController::class);
 
 Route::get('/add', [WorkersController::class, 'add'])->name('add');
 Route::get('/delete', [WorkersController::class, 'delete'])->name('delete');

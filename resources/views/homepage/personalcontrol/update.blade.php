@@ -76,62 +76,63 @@
         </table>
     </div>
    <div class="boxDownRight col-md-7">
-    <div class="form-row">
-        <div class="form-group col-md-6">
+        <form class="was-validate" action="{{ route('address.store')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="form-row">
-                <div class="form-group col-md-12">
-                    <strong>Rua</strong>
-                    <input type="text" class="form-control">
+                <div class="form-group col-md-6">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <strong>Rua</strong>
+                            <input type="text" class="form-control" id="street" name="street" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <strong>Bairro</strong>
+                            <input type="text" class="form-control" id="district" name="district" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <strong>Cidade</strong>
+                            <input type="text" class="form-control" id="city" name="city" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <strong>Estado</strong>
+                            <input type="text" class="form-control" id="state" name="state" required
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-12">
-                    <strong>Bairro</strong>
-                    <input type="text" class="form-control">
+                <div class="form-group col-md-5">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <strong>Complemento</strong>
+                            <input type="text" class="form-control" id="complement" name="complement" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <strong>Numero</strong>
+                            <input type="text" class="form-control" id="number" name="number" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3">
+                        <div class="form-group col-md-12">
+                            <button type="submit" class="formbtn btnendereco">Salvar</button>
+                        </div>
                 </div>
             </div>
-        </div>
-        <div class="form-group col-md-6">
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <strong>Cidade</strong>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <strong>Estado</strong>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-5">
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <strong>Rua</strong>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
-        </div>
-        <div class="form-group col-md-4">
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <strong>Cidade</strong>
-                    <input type="text" class="form-control">
-                </div>
-            </div>
-        </div>
-        <div class="form-group col-md-2">
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <button>teste</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 
 @else
