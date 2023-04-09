@@ -78,6 +78,8 @@
    <div class="boxDownRight col-md-7">
         <form class="was-validate" action="{{ route('address.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" id="users_id" name="users_id" value="{{ auth()->user()->id }}">
+
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <div class="form-row">
@@ -132,6 +134,37 @@
                 </div>
             </div>
         </form>
+
+        <div class="addresstable col-md-12" scrollbar>
+            <table class="table table-bordered ">
+                <tr class="backtable">
+                    <th>///</th>
+                    <th>Estado</th>
+                    <th>Cidade</th>
+                    <th>Bairro</th>
+                    <th>Rua</th>
+                    <th>Complemento</th>
+                    <th>Número</th>
+                    <th>///</th>
+                </tr>
+                @foreach ($adress as $key => $value)
+                    <tr class="sizeimg dontthis">
+                        <td>///</td>
+                        <td>{{ $value->state }}</td>
+                        <td>{{ $value->city }}</td>
+                        <td>{{ $value->district }}</td>
+                        <td>{{ $value->street }}</td>
+                        <td>{{ $value->complement }}</td>
+                        <td>{{ $value->number }}</td>
+                        <td>
+                            <a href="{{ route('addressesdelete', ['addresses_id' => $value->id, 'users_id' => auth()->user()->id]) }}"><i class="uil uil-times"></i></a>
+                        </td>
+                    </tr>
+                @endforeach
+
+            </table>
+        </div>
+        </div>
     </div>
 </div>
 

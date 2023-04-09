@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('number');
             $table->string('complement');
             $table->string('state');
+            $table->foreignId('users_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
 
         });

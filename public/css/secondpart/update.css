@@ -116,3 +116,7 @@ table .sizeimg .fiximg{
 .boxDownRight .form-group{
     margin-bottom: 0.5em;
 }
+.addresstable{
+    max-height: 8em !important;
+    overflow-y: auto;
+}

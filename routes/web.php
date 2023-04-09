@@ -37,6 +37,7 @@ Route::resource('address', AddressesController::class);
 
 Route::get('/add', [WorkersController::class, 'add'])->name('add');
 Route::get('/delete', [WorkersController::class, 'delete'])->name('delete');
+Route::get('/addressesdelete', [AddressesController::class, 'addressesdelete'])->name('addressesdelete');
 Route::get('/config', [UsersController::class, 'config'])->name('config');
 Route::get('/logout', [UsersController::class, 'logout'])->name('logout');
 Route::get('/login', [IndexController::class, 'login'])->name('movetologin');

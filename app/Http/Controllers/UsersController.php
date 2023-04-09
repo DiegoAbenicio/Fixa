@@ -118,6 +118,14 @@ class UsersController extends Controller
         try{
             $user_id = auth()->user()->id;
 
+            $adress = DB::table('addresses')
+            ->whereExists(function ($query) use ($user_id) {
+                $query->select(DB::raw(1))
+                    ->from('addresses')
+                    ->where('addresses.users_id', $user_id);
+            })
+            ->get();
+
             $userservices = DB::table('services')
             ->whereExists(function ($query) use ($user_id) {
                 $query->select(DB::raw(1))
@@ -137,7 +145,7 @@ class UsersController extends Controller
             ->get();
 
 
-            return view('homepage.personalcontrol.update', compact('service', 'userservices'));
+            return view('homepage.personalcontrol.update', compact('service', 'userservices', 'adress'));
         }catch(ErrorException $e){
             return view('homepage.personalcontrol.update');
         }

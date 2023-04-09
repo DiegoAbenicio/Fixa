@@ -15,6 +15,7 @@ class Addresses extends Model
         'city',
         'number',
         'complement',
-        'state'
+        'state',
+        'users_id'
     ];
 }
