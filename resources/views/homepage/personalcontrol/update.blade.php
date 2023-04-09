@@ -84,8 +84,8 @@
                 <div class="form-group col-md-6">
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <strong>Rua</strong>
-                            <input type="text" class="form-control" id="street" name="street" required>
+                            <strong>Estado</strong>
+                            <input type="text" class="form-control" id="state" name="state" required>
                         </div>
                     </div>
                     <div class="form-row">
@@ -104,8 +104,8 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <strong>Estado</strong>
-                            <input type="text" class="form-control" id="state" name="state" required
+                            <strong>Rua</strong>
+                            <input type="text" class="form-control" id="street" name="street" required>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                 </div>
                 <div class="form-group col-md-3">
                         <div class="form-group col-md-12">
-                            <button type="submit" class="formbtn btnendereco">Salvar</button>
+                            <button type="submit" class="formbtn btnendereco changeback good">Salvar</button>
                         </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
                     <th>Número</th>
                     <th>///</th>
                 </tr>
-                @foreach ($adress as $key => $value)
+                @foreach ($addresses as $key => $value)
                     <tr class="sizeimg dontthis">
                         <td>///</td>
                         <td>{{ $value->state }}</td>

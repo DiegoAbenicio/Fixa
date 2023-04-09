@@ -10,12 +10,19 @@
             <input type="hidden" id="users_id" name="users_id" value="{{ auth()->user()->id }}">
             <div class="form-row col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group col-md-8">
-                    <strong>Profissional</strong>
-                    <select class="form-control selectform" id="services_id" name="services_id" required>
-                        @foreach($services as $service)
-                            <option value="{{ $service->id }}">{{ $service->name }}</option>
-                        @endforeach
-                    </select>
+                    <strong>Endereço</strong>
+                    @if(count($addresses) != 0)
+                        <select class="form-control selectform" id="addreses_id" name="addreses_id" required>
+                            @foreach($addresses as $address)
+                                <option value="{{ $address->id }}">{{ $address->state }}, {{ $address->city }} -
+                                    {{ $address->street }}, {{ $address->district }} - {{ $address->complement }},
+                                    {{ $address->number }}
+                                </option>
+                            @endforeach
+                        </select>
+                    @else
+                        <input type="text" class="form-control" placeholder="Cadastre um endereço no seu perfil" disabled>
+                    @endif
                 </div>
                 <div class="form-group col-md-4">
                     <strong>Data</strong>
@@ -25,8 +32,12 @@
 
             <div class="form-row col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group col-md-7">
-                    <strong>Endereço</strong>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Insira o endereço" required>
+                    <strong>Profissional</strong>
+                    <select class="form-control selectform" id="services_id" name="services_id" required>
+                        @foreach($services as $service)
+                            <option value="{{ $service->id }}">{{ $service->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group col-md-5">
                     <strong>Valor</strong>
