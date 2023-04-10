@@ -15,22 +15,22 @@ class HubController extends Controller
     public function index(){
 
         try{
-        $user_id = auth()->user()->id;
+            $user_id = auth()->user()->id;
 
-        $services = Services::all();
+            $services = Services::all();
 
-        $addresses = DB::table('addresses')
-            ->join('users', 'users.id', '=', 'addresses.users_id')
-            ->where('users.id', $user_id)
-            ->select(
-                'addresses.id', 'addresses.street',
-                'addresses.district', 'addresses.city',
-                'addresses.number', 'addresses.complement',
-                'addresses.state', 'addresses.users_id',
-                'addresses.created_at', 'addresses.updated_at')
-            ->get();
+            $addresses = DB::table('addresses')
+                ->join('users', 'users.id', '=', 'addresses.users_id')
+                ->where('users.id', $user_id)
+                ->select(
+                    'addresses.id', 'addresses.street',
+                    'addresses.district', 'addresses.city',
+                    'addresses.number', 'addresses.complement',
+                    'addresses.state', 'addresses.users_id',
+                    'addresses.created_at', 'addresses.updated_at')
+                ->get();
 
-        return view('homepage.hub', compact('services', 'addresses'));
+            return view('homepage.hub', compact('services', 'addresses'));
         }catch(ErrorException $e){
             return view('homepage.hub');
         }

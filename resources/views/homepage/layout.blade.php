@@ -38,26 +38,22 @@
             @endif
             <ul class="navbar-nav mb-2 mb-lg-0">
                 @if (auth()->check())
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="input-icon uil uil-constructor icons "></i></a>
-                </li>
-                @php
-                    $name = auth()->user()->name;
-                @endphp
+                    <li class="nav-item">
+                        <a class="nav-link constructor-icon" href="#"><i class="input-icon uil uil-constructor icons "></i></a>
+                    </li>
+                    @php
+                        $name = auth()->user()->name;
+                    @endphp
 
-                <div class="dropdown rounded-pill dropdownstyle">
-                    <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ ucfirst(strtolower(strtok($name, ' '))) }} <i class="input-icon uil uil-user icons ml-2"></i>
-                            @if (!auth()->check())
-                                User <i class="input-icon uil uil-user icons ml-2"></i>
-                            @endif
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="{{ route('config') }}"><i class="input-icon uil uil-user"></i>Perfil</a>
-                        <a class="dropdown-item" href="#"><i class="input-icon uil uil-question-circle"></i>Help</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}"><i class="input-icon uil uil-sign-out-alt"></i>Sair</a>
+                    <div class="dropdown rounded-pill dropdownstyle">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ ucfirst(strtolower(strtok($name, ' '))) }} <img src="{{ asset('uploads/' . auth()->user()->icon) }}" class="profile-pic rounded-circle profile-hub-icon"></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="{{ route('config') }}"><i class="input-icon uil uil-user"></i>Perfil</a>
+                            <a class="dropdown-item" href="#"><i class="input-icon uil uil-question-circle"></i>Help</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"><i class="input-icon uil uil-sign-out-alt"></i>Sair</a>
+                        </div>
                     </div>
-                </div>
                 @else
                     <li class="nav-item">
                     <form action="{{route('movetologin')}}" method="GET" enctype="multipart/form-data">

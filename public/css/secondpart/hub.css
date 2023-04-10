@@ -76,3 +76,10 @@
 .good:hover{
     color: var(--textgood);
 }
+.profile-hub-icon{
+    max-height: 2.4em;
+    margin-left: 0.4em;
+}
+.constructor-icon{
+    margin-top: 0.4em;
+}
