@@ -32,7 +32,7 @@
     color: var(--primarycolor);
     background-color: var(--secundarybackground);
     font-family: "unicons";
-    content: "\eb4f";
+    content: "\ebb4";
     z-index: 20;
     top: -10px;
     left: -10px;
@@ -42,7 +42,7 @@
     transition: all 0.5s ease;
 }
 .checkbox:checked + label:before {
-    transform: translateX(44px) rotate(-270deg);
+    transform: translateX(44px) rotate(-180deg);
 }
 .checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
     transform: rotateY(180deg);
