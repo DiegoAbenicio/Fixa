@@ -1,0 +1,49 @@
+.contentbox{
+    margin: 3.5% 0 0 5%;
+}
+.jobsbox{
+    height: 570px;
+    background-color: var(--secundarybackground);
+}
+[type="checkbox"]:checked,
+[type="checkbox"]:not(:checked) {
+    display: none;
+}
+.checkbox:checked + label,
+.checkbox:not(:checked) + label {
+    position: relative;
+    display: block;
+    text-align: center;
+    width: 60px;
+    height: 16px;
+    border-radius: 8px;
+    padding: 0;
+    margin: 0 5%;
+    cursor: pointer;
+    background-color: var(--primarycolor);
+}
+.checkbox:checked + label:before,
+.checkbox:not(:checked) + label:before {
+    position: absolute;
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--primarycolor);
+    background-color: var(--secundarybackground);
+    font-family: "unicons";
+    content: "\eb4f";
+    z-index: 20;
+    top: -10px;
+    left: -10px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 24px;
+    transition: all 0.5s ease;
+}
+.checkbox:checked + label:before {
+    transform: translateX(44px) rotate(-270deg);
+}
+.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
+    transform: rotateY(180deg);
+}

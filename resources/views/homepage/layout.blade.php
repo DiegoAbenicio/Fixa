@@ -11,6 +11,7 @@
   <link href="{{ asset('css/secondpart/layout.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/secondpart/hub.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/secondpart/update.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/secondpart/jobs.css') }}" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="{{ asset('img/logo.jpg') }}">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -39,7 +40,7 @@
             <ul class="navbar-nav mb-2 mb-lg-0">
                 @if (auth()->check())
                     <li class="nav-item">
-                        <a class="nav-link constructor-icon" href="#"><i class="input-icon uil uil-constructor icons "></i></a>
+                        <a class="nav-link constructor-icon" href="{{ route('jobs.index') }}">><i class="input-icon uil uil-constructor icons "></i></a>
                     </li>
                     @php
                         $name = auth()->user()->name;

@@ -6,8 +6,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\HubController;
 use App\Http\Controllers\JobOffersController;
-use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\ServicesCaughtController;
+use App\Http\Controllers\JobsController;
 use App\Http\Controllers\WorkersController;
 
 /*
@@ -25,20 +24,28 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-Route::post('users/login', [UsersController::class, 'login'])->name('users.login');
-
-
-
 Route::resource('users', UsersController::class);
 Route::resource('hub', HubController::class);
 Route::resource('joboffers', JobOffersController::class);
 Route::resource('address', AddressesController::class);
+Route::resource('jobs', JobsController::class);
 
-Route::get('/add', [WorkersController::class, 'add'])->name('add');
-Route::get('/delete', [WorkersController::class, 'delete'])->name('delete');
-Route::get('/addressesdelete', [AddressesController::class, 'addressesdelete'])->name('addressesdelete');
-Route::get('/config', [UsersController::class, 'config'])->name('config');
-Route::get('/logout', [UsersController::class, 'logout'])->name('logout');
-Route::get('/login', [IndexController::class, 'login'])->name('movetologin');
-Route::get('/register', [IndexController::class, 'register'])->name('movetoregister');
+Route::controller(WorkersController::class)->group(function(){
+    Route::get('/add', 'add')->name('add');
+    Route::get('/delete', 'delete')->name('delete');
+});
+
+Route::controller(IndexController::class)->group(function(){
+    Route::get('/login', 'login')->name('movetologin');
+    Route::get('/register', 'register')->name('movetoregister');
+});
+
+Route::controller(UsersController::class)->group(function(){
+    Route::post('/users/login', 'login')->name('users.login');
+    Route::get('/config', 'config')->name('config');
+    Route::get('/logout', 'logout')->name('logout');
+});
+
+Route::controller(AddressesController::class)->group(function(){
+    Route::get('/addressesdelete', 'addressesdelete')->name('addressesdelete');
+});

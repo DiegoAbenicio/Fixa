@@ -1,8 +1,8 @@
 .wrong {
-    color: rgb(232, 47, 75);
+    color: var(--textdanger);
 }
 .correct {
-    color: rgb(79, 246, 143);
+    color: var(--textgood);
 }
 body {
     font-family: "Poppins", sans-serif;
