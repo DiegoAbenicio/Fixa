@@ -26,12 +26,33 @@
         </div>
 
 
-        <div class="form-group col-md-12 jobsbox">
+        <div class="form-group col-md-12 jobsbox card-3d-wrap">
+            <div class="card-3d-wrapper">
+                <div class="card-front">
+                    <div class="center-wrap">
+                        oi bb
+                    </div>
+                </div>
 
+                <div class="card-back">
+                    <div class="center-wrap">
+                        oi xuxu
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
 </div>
+
+
+<script>
+    document.getElementById('another-log').onclick = function() {
+        document.getElementById('error-message-one').style.display = 'none';
+        document.getElementById('error-message-two').style.display = 'none';
+    };
+</script>
+
 @else
 
 @endif
