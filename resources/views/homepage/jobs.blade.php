@@ -1,59 +1,68 @@
 @extends('homepage.layout')
 @section('content')
-@if (auth()->check())
 <div class="form-row col-md-12">
+	<div class="form-row col-md-6">
+		<div class="col-12 text-center align-self-center ">
+			<div class="section pb-5 pt-5 pt-sm-2 text-center ">
+				<h6 class=""><span>Suas Ofertas </span></h6>
+			    <input class="checkbox" {{ session('checkbox') ? 'checked' : '' }} type="checkbox" id="your-offers" name="your-offers"/>
+			    <label for="your-offers"></label>
+                <h6 class=""><span>Contratos realizados</span></h6>
+				<div class="card-3d-wrap mx-auto">
+					<div class="card-3d-wrapper jobsbox">
+						<div class="card-front">
+							<div class="center-wrap ">
+                                teste
+		      				</div>
+		      				</div>
+						<div class="card-back">
+							<div class="center-wrap">
+                                oi
+			  				</div>
+		      			</div>
+		      		</div>
+			    </div>
+			</div>
+		</div>
+	</div>
 
-    <div class="form-row col-md-5 contentbox">
-        <div class="form-row justify-content-center col-md-12">
-            <h6 class="mb-0 pb-3"><span>Suas Ofertas </span></h6>
-		    <input class="checkbox" {{ session('checkbox') ? 'checked' : '' }} type="checkbox" id="your-log" name="your-log"/>
-            <label for="your-log"></label>
-            <h6 class="mb-0 pb-3"><span>Ofertas aceitas </span></h6>
-        </div>
-
-        <div class="form-group col-md-12 jobsbox">
-
-        </div>
-
-    </div>
-
-    <div class="form-row col-md-5 contentbox">
-        <div class="form-row justify-content-center col-md-12">
-            <h6 class="mb-0 pb-3"><span>Ofertas disponiveis </span></h6>
-		    <input class="checkbox" {{ session('checkbox') ? 'checked' : '' }} type="checkbox" id="another-log" name="another-log"/>
-            <label for="another-log"></label>
-            <h6 class="mb-0 pb-3"><span>Ofertas aceitas </span></h6>
-        </div>
-
-
-        <div class="form-group col-md-12 jobsbox card-3d-wrap">
-            <div class="card-3d-wrapper">
-                <div class="card-front">
-                    <div class="center-wrap">
-                        oi bb
-                    </div>
-                </div>
-
-                <div class="card-back">
-                    <div class="center-wrap">
-                        oi xuxu
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    <div class="form-row col-md-6">
+		<div class="col-12 text-center align-self-center ">
+			<div class="section pb-5 pt-5 pt-sm-2 text-center ">
+				<h6 class=""><span>Ofertas disponiveis</span></h6>
+			    <input class="checkbox" {{ session('checkbox') ? 'checked' : '' }} type="checkbox" id="another-offers" name="another-offers"/>
+			    <label for="another-offers"></label>
+                <h6 class=""><span>Ofertas Aceitas</span></h6>
+				<div class="card-3d-wrap mx-auto">
+					<div class="card-3d-wrapper jobsbox">
+						<div class="card-front">
+							<div class="center-wrap ">
+                                teste
+		      				</div>
+		      				</div>
+						<div class="card-back">
+							<div class="center-wrap">
+                                oi
+			  				</div>
+		      			</div>
+		      		</div>
+			    </div>
+			</div>
+		</div>
+	</div>
 </div>
+    <script>
 
-
-<script>
-    document.getElementById('another-log').onclick = function() {
+    document.getElementById('your-offers').onclick = function() {
         document.getElementById('error-message-one').style.display = 'none';
         document.getElementById('error-message-two').style.display = 'none';
     };
-</script>
 
-@else
+    document.getElementById('another-offers').onclick = function() {
+        document.getElementById('error-message-one').style.display = 'none';
+        document.getElementById('error-message-two').style.display = 'none';
+    };
+    </script>
 
-@endif
+
 @endsection

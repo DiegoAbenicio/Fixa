@@ -1,24 +1,20 @@
-.contentbox{
-    margin: 3.5% 0 0 5%;
-}
-.jobsbox{
-    height: 570px;
-    background-color: var(--secundarybackground);
-}
 [type="checkbox"]:checked,
 [type="checkbox"]:not(:checked) {
     display: none;
 }
+h6{
+    display: inline;
+}
 .checkbox:checked + label,
 .checkbox:not(:checked) + label {
     position: relative;
-    display: block;
+    display: inline-block;
     text-align: center;
     width: 60px;
     height: 16px;
     border-radius: 8px;
     padding: 0;
-    margin: 0 5%;
+    margin: 10px 10px 0 10px;
     cursor: pointer;
     background-color: var(--primarycolor);
 }
@@ -37,19 +33,16 @@
     top: -10px;
     left: -10px;
     line-height: 36px;
-    text-align: center;
     font-size: 24px;
     transition: all 0.5s ease;
 }
 .checkbox:checked + label:before {
     transform: translateX(44px) rotate(-180deg);
 }
-.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
-    transform: rotateY(180deg);
-}
-
 .card-3d-wrap {
+    margin-top: 10px;
     position: relative;
+    height: 570px;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     perspective: 800px;
@@ -74,9 +67,14 @@
 .card-back {
     transform: rotateY(180deg);
 }
+.checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
+    transform: rotateY(180deg);
+}
 .center-wrap {
     position: absolute;
     width: 100%;
+    padding: 0 35px;
+    top: 50%;
     left: 0;
     transform: translate3d(0, -50%, 35px) perspective(100px);
     z-index: 20;
