@@ -12,7 +12,7 @@
                 <div class="form-group col-md-8">
                     <strong>Endereço</strong>
                     @if(count($addresses) != 0)
-                        <select class="form-control selectform" id="addreses_id" name="addreses_id" required>
+                        <select class="form-control selectform" id="addresses_id" name="addresses_id" required>
                             @foreach($addresses as $address)
                                 <option value="{{ $address->id }}">{{ $address->state }}, {{ $address->city }} -
                                     {{ $address->street }}, {{ $address->district }} - {{ $address->complement }},

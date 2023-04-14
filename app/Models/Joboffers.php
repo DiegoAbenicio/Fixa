@@ -12,7 +12,7 @@ class Joboffers extends Model
     protected $fillable = [
         'users_id',
         'services_id',
-        'address',
+        'addresses_id',
         'data',
         'value',
         'description'

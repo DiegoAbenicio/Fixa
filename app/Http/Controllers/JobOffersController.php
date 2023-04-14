@@ -29,14 +29,16 @@ class JobOffersController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'users_id' => 'required',
             'services_id' => 'required',
-            'address' => 'required',
+            'addresses_id' => 'required',
             'data' => 'required|date',
             'value' => 'required',
             'description' => 'required',
         ]);
+
 
         Joboffers::create($request->all());
 

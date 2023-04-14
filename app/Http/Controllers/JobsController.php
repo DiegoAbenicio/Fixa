@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class JobsController extends Controller
 {
@@ -12,6 +13,8 @@ class JobsController extends Controller
      */
     public function index()
     {
+        
+
         return view('homepage.jobs');
     }
 
