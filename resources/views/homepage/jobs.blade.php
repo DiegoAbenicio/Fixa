@@ -16,7 +16,7 @@
                                 <table id="yajra-datatable" class="table table-bordered yajra-datatable">
                                     <thead>
                                         <tr>
-                                            <th>Nome</th>
+                                            <th>Contratante</th>
                                             <th>Profissional</th>
                                             <th>Valor</th>
                                             <th>Endereço</th>
@@ -92,10 +92,14 @@
                 url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
             },
             columns: [
-                {data: 'users_id', name: 'Nome', orderable: true, searchable: true},
-                {data: 'services_id', name: 'Profissional', orderable: false, searchable: true},
+                {data: 'user_name', name: 'Contratante', orderable: true, searchable: true, render: function(data, type, full, meta){
+                    var firstName = data.split(' ')[0];
+                    return firstName;
+                }},
+                {data: 'service_name', name: 'Profissional', orderable: false, searchable: true},
                 {data: 'value', name: 'Valor', orderable: false, searchable: true},
-                {data: 'addresses_id', name: 'Endereço', orderable: false, searchable: true},
+                {data: 'address_street', name: 'Endereço', orderable: false, searchable: true},
+
                 {
                     data: 'action',
                     name: 'Ação',
