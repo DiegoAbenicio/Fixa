@@ -14,28 +14,11 @@ class JobsController extends Controller
      */
     public function index()
     {
-        if(auth()->check()){
-            $user_id = auth()->user()->id;
-
-            $user_offers = Joboffers::where('users_id', $user_id)->get();
-
-            $other_offers = Joboffers::where('users_id', '<>', $user_id)
-                                    ->whereNotIn('id', $user_offers->pluck('id'))
-                                    ->get();
-
-            dd($user_offers , $other_offers);
-
-            return view('homepage.jobs', [
-                'user_offers' => $user_offers,
-                'other_offers' => $other_offers,
-            ])->with('i', (request()->input('page', 1) - 1) * 5);
-        }else{
-            return view('homepage.jobs');
-        }
-
+        return view('homepage.jobs');
     }
 
     public function usersjobsAjaxDataTables(Request $request){
+
         if ($request->ajax()) {
 
             $user_id = auth()->user()->id;
@@ -51,6 +34,33 @@ class JobsController extends Controller
                     $actionBtn .= '<td>' . $row->name . '</td>';
                     $actionBtn .= '<td class="fiximg">';
                     $actionBtn .= '<a href="' . route('delete', ['services_id' => $services_id, 'users_id' => $users_id]) . '">Remover<i class="uil uil-times"></i></a>';
+                    $actionBtn .= '</td></tr>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
+    public function anotherusersjobsAjaxDataTables(Request $request){
+
+        if ($request->ajax()) {
+
+            $user_id = auth()->user()->id;
+            $user_offers = Joboffers::where('users_id', $user_id)->get();
+            $data = Joboffers::where('users_id', '<>', $user_id)
+                                    ->whereNotIn('id', $user_offers->pluck('id'))
+                                    ->get();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $services_id = $row->id;
+                    $users_id = auth()->user()->id;
+                    $actionBtn = '<tr class="sizeimg havethis">';
+                    $actionBtn .= '<td>' . $row->name . '</td>';
+                    $actionBtn .= '<td class="fiximg">';
+                    $actionBtn .= '<a href="' . route('add', ['services_id' => $services_id, 'users_id' => $users_id]) . '">Add<i class="uil uil-check"></i></a>';
                     $actionBtn .= '</td></tr>';
                     return $actionBtn;
                 })

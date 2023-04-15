@@ -1,7 +1,7 @@
 @extends('homepage.layout')
 @section('content')
 
-
+@if(auth()->check())
 <div class="box col-md-6">
     <form class="was-validate" action="{{ route('joboffers.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
@@ -51,5 +51,5 @@
         <button href="submit" class="formbtn mt-4">Enviar Oferta</button
     </form>
 </div>
-
+@endif
 @endsection

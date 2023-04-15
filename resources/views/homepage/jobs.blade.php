@@ -1,5 +1,6 @@
 @extends('homepage.layout')
 @section('content')
+@if(auth()->check())
 <div class="form-row col-md-12">
 	<div class="form-row col-md-6">
 		<div class="col-12 text-center align-self-center ">
@@ -19,6 +20,7 @@
                                             <th>Profissional</th>
                                             <th>Valor</th>
                                             <th>Endereço</th>
+                                            <th>Ação</th>
                                         </tr>
                                     </thead>
 
@@ -63,8 +65,7 @@
 		</div>
 	</div>
 </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
 
 
     <script>
@@ -95,10 +96,16 @@
                 {data: 'services_id', name: 'Profissional', orderable: false, searchable: true},
                 {data: 'value', name: 'Valor', orderable: false, searchable: true},
                 {data: 'addresses_id', name: 'Endereço', orderable: false, searchable: true},
+                {
+                    data: 'action',
+                    name: 'Ação',
+                    orderable: false,
+                    searchable: false
+                },
             ]
         });
 
         });
   </script>
-
+@endif
 @endsection

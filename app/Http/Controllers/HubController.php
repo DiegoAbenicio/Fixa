@@ -14,7 +14,7 @@ class HubController extends Controller
 {
     public function index(){
 
-        try{
+        if(auth()->check()){
             $user_id = auth()->user()->id;
 
             $services = Services::all();
@@ -31,7 +31,7 @@ class HubController extends Controller
                 ->get();
 
             return view('homepage.hub', compact('services', 'addresses'));
-        }catch(ErrorException $e){
+        }else{
             return view('homepage.hub');
         }
     }
