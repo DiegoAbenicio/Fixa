@@ -12,9 +12,21 @@
 					<div class="card-3d-wrapper jobsbox">
 						<div class="card-front">
 							<div class="center-wrap ">
-                                teste
+                                <table id="yajra-datatable" class="table table-bordered yajra-datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Profissional</th>
+                                            <th>Valor</th>
+                                            <th>Endereço</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    </tbody>
+                                </table>
 		      				</div>
-		      				</div>
+		      			</div>
 						<div class="card-back">
 							<div class="center-wrap">
                                 oi
@@ -51,6 +63,10 @@
 		</div>
 	</div>
 </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+
     <script>
 
     document.getElementById('your-offers').onclick = function() {
@@ -64,5 +80,25 @@
     };
     </script>
 
+    <script type="text/javascript">
+        $(function () {
+
+        var table = $('.yajra-datatable').DataTable({
+            processing: true,
+            serverSide: false,
+            ajax: "{{ route('usersjobs.ajax') }}",
+            language: {
+                url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
+            },
+            columns: [
+                {data: 'users_id', name: 'Nome', orderable: true, searchable: true},
+                {data: 'services_id', name: 'Profissional', orderable: false, searchable: true},
+                {data: 'value', name: 'Valor', orderable: false, searchable: true},
+                {data: 'addresses_id', name: 'Endereço', orderable: false, searchable: true},
+            ]
+        });
+
+        });
+  </script>
 
 @endsection

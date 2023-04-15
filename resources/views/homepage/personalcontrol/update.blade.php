@@ -1,8 +1,6 @@
 @extends('homepage.layout')
 @section('content')
 
-
-@if (auth()->check())
 <div class="boxUp col-md-6">
     <div>
         <form class="was-validate" action="{{ route('users.update', auth()->user()->id) }}" method="POST" enctype="multipart/form-data">
@@ -167,14 +165,6 @@
         </div>
     </div>
 </div>
-
-@else
-
-    <div class="blackbox">
-            LOGUE NO SITE PARA ACESSAR ESTES CONTÉUDOS
-    </div>
-
-@endif
 
 
 @endsection

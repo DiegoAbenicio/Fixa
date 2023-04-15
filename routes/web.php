@@ -30,6 +30,8 @@ Route::resource('joboffers', JobOffersController::class);
 Route::resource('address', AddressesController::class);
 Route::resource('jobs', JobsController::class);
 
+Route::get('usersjobs.ajax', [ListagemController::class,'usersjobsAjaxDataTables'])->name('usersjobs.ajax');
+
 Route::controller(WorkersController::class)->group(function(){
     Route::get('/add', 'add')->name('add');
     Route::get('/delete', 'delete')->name('delete');
