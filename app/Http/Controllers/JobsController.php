@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Joboffers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
 class JobsController extends Controller
@@ -33,18 +34,23 @@ class JobsController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $services_id = $row->id;
-                    $users_id = auth()->user()->id;
-                    $actionBtn = '<tr class="sizeimg havethis">';
-                    $actionBtn .= '<td>' . $row->name . '</td>';
-                    $actionBtn .= '<td class="fiximg">';
-                    $actionBtn .= '<a href="' . route('delete', ['services_id' => $services_id, 'users_id' => $users_id]) . '">Remover<i class="uil uil-times"></i></a>';
-                    $actionBtn .= '</td></tr>';
+                    $id= $row->id;
+                    $actionBtn = '<a href="' . route('removeJob', ['id' => $id]) . '">Remover<i class="uil uil-times"></i></a>';
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
+    }
+
+    public function removeJob(Request $request){
+        $id = $request->id;
+
+        DB::table('joboffers')
+            ->where('id', $id)
+            ->delete();
+
+        return redirect()->back();
     }
 
     public function anotherjobsAjaxDataTables(Request $request){
@@ -70,11 +76,7 @@ class JobsController extends Controller
                 ->addColumn('action', function($row){
                     $services_id = $row->id;
                     $users_id = auth()->user()->id;
-                    $actionBtn = '<tr class="sizeimg havethis">';
-                    $actionBtn .= '<td>' . $row->name . '</td>';
-                    $actionBtn .= '<td class="fiximg">';
-                    $actionBtn .= '<a href="' . route('add', ['services_id' => $services_id, 'users_id' => $users_id]) . '">Add<i class="uil uil-check"></i></a>';
-                    $actionBtn .= '</td></tr>';
+                    $actionBtn = '<a href="' . route('add', ['services_id' => $services_id, 'users_id' => $users_id]) . '" >Add<i class="uil uil-check"></i></a>';
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])

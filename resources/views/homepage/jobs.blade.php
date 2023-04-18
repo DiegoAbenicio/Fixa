@@ -66,7 +66,7 @@
                                     </tbody>
                                 </table>
 		      				</div>
-		      				</div>
+		      			</div>
 						<div class="card-back">
 							<div class="center-wrap">
                                 oi
