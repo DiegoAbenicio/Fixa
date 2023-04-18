@@ -47,15 +47,23 @@ class JobsController extends Controller
         }
     }
 
-    public function anotherusersjobsAjaxDataTables(Request $request){
+    public function anotherjobsAjaxDataTables(Request $request){
 
         if ($request->ajax()) {
 
             $user_id = auth()->user()->id;
-            $user_offers = Joboffers::where('users_id', $user_id)->get();
-            $data = Joboffers::where('users_id', '<>', $user_id)
-                                    ->whereNotIn('id', $user_offers->pluck('id'))
-                                    ->get();
+
+            $user_offers = Joboffers::select('joboffers.id')
+                ->where('users_id', $user_id)
+                ->get();
+
+            $data = Joboffers::select('joboffers.*', 'users.name as user_name', 'services.name as service_name', 'addresses.street as address_street', 'addresses.city as address_city')
+                ->join('users', 'users.id', '=', 'joboffers.users_id')
+                ->join('services', 'services.id', '=', 'joboffers.services_id')
+                ->join('addresses', 'addresses.id', '=', 'joboffers.addresses_id')
+                ->where('joboffers.users_id', '<>', $user_id)
+                ->whereNotIn('joboffers.id', $user_offers->pluck('id'))
+                ->get();
 
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -71,6 +79,7 @@ class JobsController extends Controller
                 })
                 ->rawColumns(['action'])
                 ->make(true);
+
         }
     }
 

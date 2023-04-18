@@ -31,6 +31,8 @@ Route::resource('address', AddressesController::class);
 Route::resource('jobs', JobsController::class);
 
 Route::get('usersjobs.ajax', [JobsController::class,'usersjobsAjaxDataTables'])->name('usersjobs.ajax');
+Route::get('anotherjobs.ajax', [JobsController::class,'anotherjobsAjaxDataTables'])->name('anotherjobs.ajax');
+
 
 Route::controller(WorkersController::class)->group(function(){
     Route::get('/add', 'add')->name('add');

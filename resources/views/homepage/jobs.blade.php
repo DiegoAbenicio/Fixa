@@ -13,13 +13,13 @@
 					<div class="card-3d-wrapper jobsbox">
 						<div class="card-front">
 							<div class="center-wrap ">
-                                <table id="yajra-datatable" class="table table-bordered yajra-datatable">
+                                <table id="yajra-datatable" class="table table-bordered yajra-datatable youroffers-datatable">
                                     <thead>
                                         <tr>
-                                            <th>Contratante</th>
+                                            <th>Cidade</th>
+                                            <th>Rua</th>
                                             <th>Profissional</th>
                                             <th>Valor</th>
-                                            <th>Endereço</th>
                                             <th>Ação</th>
                                         </tr>
                                     </thead>
@@ -51,7 +51,20 @@
 					<div class="card-3d-wrapper jobsbox">
 						<div class="card-front">
 							<div class="center-wrap ">
-                                teste
+                                <table id="yajra-datatable" class="table table-bordered yajra-datatable anotheroffers-datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Contratante</th>
+                                            <th>Profissional</th>
+                                            <th>Valor</th>
+                                            <th>Endereço</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    </tbody>
+                                </table>
 		      				</div>
 		      				</div>
 						<div class="card-back">
@@ -84,10 +97,32 @@
     <script type="text/javascript">
         $(function () {
 
-        var table = $('.yajra-datatable').DataTable({
+        var table = $('.youroffers-datatable').DataTable({
             processing: true,
             serverSide: false,
             ajax: "{{ route('usersjobs.ajax') }}",
+            language: {
+                url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
+            },
+            columns: [
+                {data: 'address_city', name: 'Cidade', orderable: false, searchable: true},
+                {data: 'address_street', name: 'Rua', orderable: false, searchable: true},
+                {data: 'service_name', name: 'Profissional', orderable: false, searchable: true},
+                {data: 'value', name: 'Valor', orderable: false, searchable: true},
+
+                {
+                    data: 'action',
+                    name: 'Ação',
+                    orderable: false,
+                    searchable: false
+                },
+            ]
+        });
+
+        var table = $('.anotheroffers-datatable').DataTable({
+            processing: true,
+            serverSide: false,
+            ajax: "{{ route('anotherjobs.ajax') }}",
             language: {
                 url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
             },
@@ -110,6 +145,8 @@
         });
 
         });
+
+
   </script>
 @endif
 @endsection

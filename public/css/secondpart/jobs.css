@@ -72,10 +72,21 @@ h6{
 .center-wrap {
     position: absolute;
     width: 100%;
-    padding: 0 35px;
-    top: 50%;
+    top: 30%;
     left: 0;
     transform: translate3d(0, -50%, 35px) perspective(100px);
     z-index: 20;
     display: block;
+}
+.center-wrap input, select, option{
+    background-color: var(--primarybackground) !important;
+}
+.center-wrap input{
+    width: 300px;
+}
+.center-wrap select, option{
+   width: 100px;
+}
+#yajra-datatable_length{
+    padding-top: 25px;
 }
