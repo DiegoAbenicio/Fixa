@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Joboffers;
+use App\Models\Servicescaught;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
@@ -74,9 +75,9 @@ class JobsController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $services_id = $row->id;
+                    $id= $row->id;
                     $users_id = auth()->user()->id;
-                    $actionBtn = '<a href="' . route('add', ['services_id' => $services_id, 'users_id' => $users_id]) . '" >Add<i class="uil uil-check"></i></a>';
+                    $actionBtn = '<a href="' . route('addJob', ['id' => $id, 'users_id' => $users_id]) . '" >Add<i class="uil uil-check"></i></a>';
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
@@ -85,6 +86,34 @@ class JobsController extends Controller
         }
     }
 
+    public function addJob(Request $request){
+        $joboffer = DB::table('joboffers')
+            ->where('id', $request->id)
+            ->first();
+
+        $worker =  DB::table('workers')
+                    ->where('services_id', $joboffer->services_id)
+                    ->where('users_id', $request->users_id)
+                    ->first();
+
+        if($worker){
+            Servicescaught::create([
+                'users_id' => $joboffer->users_id,
+                'services_id' => $joboffer->services_id,
+                'workers_id' => $worker->id,
+                'address_id' => $joboffer->addresses_id,
+                'data' => $joboffer->data,
+                'value' => $joboffer->value,
+                'description' => $joboffer->description,
+            ]);
+
+
+            Joboffers::find($joboffer->id)->delete();
+        }
+
+        return redirect()->back();
+
+    }
     /**
      * Show the form for creating a new resource.
      */

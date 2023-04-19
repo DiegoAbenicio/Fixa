@@ -35,6 +35,7 @@ Route::get('anotherjobs.ajax', [JobsController::class,'anotherjobsAjaxDataTables
 
 Route::controller(JobsController::class)->group(function(){
     Route::get('/removeJob', 'removeJob')->name('removeJob');
+    Route::get('/addJob', 'addJob')->name('addJob');
 });
 
 

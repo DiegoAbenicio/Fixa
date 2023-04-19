@@ -13,7 +13,7 @@ class Servicescaught extends Model
         'users_id',
         'services_id',
         'workers_id',
-        'address',
+        'address_id',
         'data',
         'value',
         'description'
