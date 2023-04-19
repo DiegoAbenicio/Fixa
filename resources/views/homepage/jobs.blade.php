@@ -8,7 +8,7 @@
 				<h6 class=""><span>Suas Ofertas </span></h6>
 			    <input class="checkbox" {{ session('checkbox') ? 'checked' : '' }} type="checkbox" id="your-offers" name="your-offers"/>
 			    <label for="your-offers"></label>
-                <h6 class=""><span>Contratos realizados</span></h6>
+                <h6 class=""><span>Contratos aceitos</span></h6>
 				<div class="card-3d-wrap mx-auto">
 					<div class="card-3d-wrapper jobsbox">
 						<div class="card-front">
@@ -68,9 +68,22 @@
 		      				</div>
 		      			</div>
 						<div class="card-back">
-							<div class="center-wrap">
-                                oi
-			  				</div>
+							<div class="center-wrap ">
+                                <table id="yajra-datatable" class="table table-bordered yajra-datatable anotheraccept-datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Contratante</th>
+                                            <th>Contratado</th>
+                                            <th>Valor</th>
+                                            <th>Endereço</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    </tbody>
+                                </table>
+		      				</div>
 		      			</div>
 		      		</div>
 			    </div>
@@ -97,52 +110,74 @@
     <script type="text/javascript">
         $(function () {
 
-        var table = $('.youroffers-datatable').DataTable({
-            processing: true,
-            serverSide: false,
-            ajax: "{{ route('usersjobs.ajax') }}",
-            language: {
-                url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
-            },
-            columns: [
-                {data: 'address_city', name: 'Cidade', orderable: false, searchable: true},
-                {data: 'address_street', name: 'Rua', orderable: false, searchable: true},
-                {data: 'service_name', name: 'Profissional', orderable: false, searchable: true},
-                {data: 'value', name: 'Valor', orderable: false, searchable: true},
-
-                {
-                    data: 'action',
-                    name: 'Ação',
-                    orderable: false,
-                    searchable: false
+            var table = $('.youroffers-datatable').DataTable({
+                processing: true,
+                serverSide: false,
+                ajax: "{{ route('usersjobs.ajax') }}",
+                language: {
+                    url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
                 },
-            ]
-        });
+                columns: [
+                    {data: 'address_city', name: 'Cidade', orderable: false, searchable: true},
+                    {data: 'address_street', name: 'Rua', orderable: false, searchable: true},
+                    {data: 'service_name', name: 'Profissional', orderable: false, searchable: true},
+                    {data: 'value', name: 'Valor', orderable: false, searchable: true},
 
-        var table = $('.anotheroffers-datatable').DataTable({
-            processing: true,
-            serverSide: false,
-            ajax: "{{ route('anotherjobs.ajax') }}",
-            language: {
-                url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
-            },
-            columns: [
-                {data: 'user_name', name: 'Contratante', orderable: true, searchable: true, render: function(data, type, full, meta){
-                    var firstName = data.split(' ')[0];
-                    return firstName;
-                }},
-                {data: 'service_name', name: 'Profissional', orderable: false, searchable: true},
-                {data: 'value', name: 'Valor', orderable: false, searchable: true},
-                {data: 'address_street', name: 'Endereço', orderable: false, searchable: true},
+                    {
+                        data: 'action',
+                        name: 'Ação',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
+            });
 
-                {
-                    data: 'action',
-                    name: 'Ação',
-                    orderable: false,
-                    searchable: false
+            var table = $('.anotheroffers-datatable').DataTable({
+                processing: true,
+                serverSide: false,
+                ajax: "{{ route('anotherjobs.ajax') }}",
+                language: {
+                    url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
                 },
-            ]
-        });
+                columns: [
+                    {data: 'user_name', name: 'Contratante', orderable: true, searchable: true, render: function(data, type, full, meta){
+                        var firstName = data.split(' ')[0];
+                        return firstName;
+                    }},
+                    {data: 'service_name', name: 'Profissional', orderable: false, searchable: true},
+                    {data: 'value', name: 'Valor', orderable: false, searchable: true},
+                    {data: 'address_street', name: 'Endereço', orderable: false, searchable: true},
+
+                    {
+                        data: 'action',
+                        name: 'Ação',
+                        orderable: false,
+                        searchable: false
+                    },
+                ]
+            });
+
+            var table = $('.anotheraccept-datatable').DataTable({
+                processing: true,
+                serverSide: false,
+                ajax: "{{ route('anotheraccept.ajax') }}",
+                language: {
+                    url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
+                },
+                columns: [
+                    {data: 'user_name', name: 'Contratante', orderable: true, searchable: true, render: function(data, type, full, meta){
+                        var firstName = data.split(' ')[0];
+                        return firstName;
+                    }},
+                    {data: 'worker_name', name: 'Contratado', orderable: true, searchable: true, render: function(data, type, full, meta){
+                        var firstName = data.split(' ')[0];
+                        return firstName;
+                    }},
+                    {data: 'value', name: 'Valor', orderable: false, searchable: true},
+                    {data: 'address_street', name: 'Endereço', orderable: false, searchable: true},
+                    {data: 'action', name: 'Ação', orderable: false, searchable: false},
+                ]
+            });
 
         });
 

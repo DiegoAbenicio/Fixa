@@ -114,6 +114,43 @@ class JobsController extends Controller
         return redirect()->back();
 
     }
+
+
+    public function anotheracceptAjaxDataTables(Request $request)
+    {
+        if ($request->ajax()) {
+            $user_id = auth()->user()->id;
+
+            $user_offers_caught = Servicescaught::select('servicescaughts.id')
+                ->where('users_id', $user_id)
+                ->get();
+
+            $data = Servicescaught::select('servicescaughts.*', 'users.name as user_name', 'services.name as service_name', 'addresses.street as address_street', 'addresses.city as address_city', 'workers_id')
+                ->join('users', 'users.id', '=', 'servicescaughts.users_id')
+                ->join('services', 'services.id', '=', 'servicescaughts.services_id')
+                ->join('addresses', 'addresses.id', '=', 'servicescaughts.address_id')
+                ->where('servicescaughts.users_id', '<>', $user_id)
+                ->whereNotIn('servicescaughts.id', $user_offers_caught->pluck('id'))
+                ->get();
+
+            foreach ($data as $row) {
+                $row->worker_name = auth()->user()->name;
+            }
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('worker_name', function($row) {
+                    return $row->worker_name ?? '';
+                })
+                ->addColumn('action', function($row) use ($user_id) {
+                    $id = $row->id;
+                    $actionBtn = '<a href="' . route('addJob', ['id' => $id, 'users_id' => $user_id]) . '" >Add<i class="uil uil-check"></i></a>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */
