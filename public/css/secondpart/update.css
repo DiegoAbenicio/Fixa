@@ -1,9 +1,9 @@
 .boxUp {
     background-color: var(--secundarybackground);
-    margin: 3.5% 0 0 5%;
-    padding-top: 1.7%;
+    margin: 3% 0 0 5%;
+    padding-top: 1%;
     max-width: 90%;
-    height: 600px;
+    height: 620px;
 }
 .boxDownLeft {
     background-color: var(--primarybackground);

@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Joboffers;
-use App\Models\Services;
 use App\Models\Servicescaught;
-use App\Models\Users;
+use App\Models\Workers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
@@ -160,15 +159,18 @@ class JobsController extends Controller
         if ($request->ajax()) {
             $user_id = auth()->user()->id;
 
+            $workers = Workers::where('users_id', $user_id)->pluck('id');
+
             $user_offers_caught = Joboffers::select('joboffers.id')
                 ->where('users_id', $user_id)
                 ->get();
 
-            $data = Joboffers::select('joboffers.*', 'users.name as user_name', 'services.name as service_name', 'addresses.street as address_street', 'addresses.city as address_city', 'workers.id as worker_id', 'workers.name as worker_name')
+            $data = Joboffers::select('joboffers.*', 'users.name as user_name', 'workers.services_id', 'services.name as service_name', 'addresses.street as address_street', 'addresses.city as address_city', 'joboffers.users_id', 'workers.users_id as worker_id', 'worker_users.name as worker_name')
                 ->join('users', 'users.id', '=', 'joboffers.users_id')
-                ->join('services', 'services.id', '=', 'joboffers.services_id')
                 ->join('addresses', 'addresses.id', '=', 'joboffers.addresses_id')
-                ->leftJoin('workers', 'workers.id', '=', 'joboffers.worker_id')
+                ->join('services', 'services.id', '=', 'joboffers.services_id')
+                ->join('workers', 'workers.services_id', '=', 'services.id')
+                ->join('users as worker_users', 'worker_users.id', '=', 'workers.users_id')
                 ->where('joboffers.users_id', '=', $user_id)
                 ->whereIn('joboffers.id', $user_offers_caught->pluck('id'))
                 ->get();

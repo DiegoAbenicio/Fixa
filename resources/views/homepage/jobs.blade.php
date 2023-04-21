@@ -204,7 +204,7 @@
                         var firstName = data.split(' ')[0];
                         return firstName;
                     }},
-                    {data: 'user_name', name: 'Contratado', orderable: true, searchable: true, render: function(data, type, full, meta){
+                    {data: 'worker_name', name: 'Contratado', orderable: true, searchable: true, render: function(data, type, full, meta){
                         var firstName = data.split(' ')[0];
                         return firstName;
                     }},
