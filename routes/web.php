@@ -26,13 +26,15 @@ Route::get('/', function () {
 
 Route::resource('users', UsersController::class);
 Route::resource('hub', HubController::class);
-Route::resource('joboffers', JobOffersController::class);
+Route::resource('joboffers', JobOffersController::class);   
 Route::resource('address', AddressesController::class);
 Route::resource('jobs', JobsController::class);
 
 Route::get('usersjobs.ajax', [JobsController::class,'usersjobsAjaxDataTables'])->name('usersjobs.ajax');
 Route::get('anotherjobs.ajax', [JobsController::class,'anotherjobsAjaxDataTables'])->name('anotherjobs.ajax');
 Route::get('anotheraccept.ajax', [JobsController::class, 'anotheracceptAjaxDataTables'])->name('anotheraccept.ajax');
+Route::get('youraccept.ajax', [JobsController::class, 'youracceptAjaxDataTables'])->name('youraccept.ajax');
+
 
 Route::controller(JobsController::class)->group(function(){
     Route::get('/removeJob', 'removeJob')->name('removeJob');

@@ -31,7 +31,20 @@
 		      			</div>
 						<div class="card-back">
 							<div class="center-wrap">
-                                oi
+                                <table id="yajra-datatable" class="table table-bordered yajra-datatable youraccept-datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Contratante</th>
+                                            <th>Contratado</th>
+                                            <th>Valor</th>
+                                            <th>Endereço</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    </tbody>
+                                </table>
 			  				</div>
 		      			</div>
 		      		</div>
@@ -179,9 +192,29 @@
                 ]
             });
 
+            var table = $('.youraccept-datatable').DataTable({
+                processing: true,
+                serverSide: false,
+                ajax: "{{ route('youraccept.ajax') }}",
+                language: {
+                    url: 'http://cdn.datatables.net/plug-ins/1.11.3/i18n/pt_br.json'
+                },
+                columns: [
+                    {data: 'contrat_name', name: 'Contratante', orderable: true, searchable: true, render: function(data, type, full, meta){
+                        var firstName = data.split(' ')[0];
+                        return firstName;
+                    }},
+                    {data: 'user_name', name: 'Contratado', orderable: true, searchable: true, render: function(data, type, full, meta){
+                        var firstName = data.split(' ')[0];
+                        return firstName;
+                    }},
+                    {data: 'value', name: 'Valor', orderable: false, searchable: true},
+                    {data: 'address_street', name: 'Endereço', orderable: false, searchable: true},
+                    {data: 'action', name: 'Ação', orderable: false, searchable: false},
+                ]
+            });
+
         });
-
-
   </script>
 @endif
 @endsection

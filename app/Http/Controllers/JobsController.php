@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Joboffers;
+use App\Models\Services;
 use App\Models\Servicescaught;
+use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
@@ -151,6 +153,49 @@ class JobsController extends Controller
                 ->make(true);
         }
     }
+
+
+    public function youracceptAjaxDataTables(Request $request)
+    {
+        if ($request->ajax()) {
+            $user_id = auth()->user()->id;
+
+            $user_offers_caught = Joboffers::select('joboffers.id')
+                ->where('users_id', $user_id)
+                ->get();
+
+            $data = Joboffers::select('joboffers.*', 'users.name as user_name', 'services.name as service_name', 'addresses.street as address_street', 'addresses.city as address_city', 'workers.id as worker_id', 'workers.name as worker_name')
+                ->join('users', 'users.id', '=', 'joboffers.users_id')
+                ->join('services', 'services.id', '=', 'joboffers.services_id')
+                ->join('addresses', 'addresses.id', '=', 'joboffers.addresses_id')
+                ->leftJoin('workers', 'workers.id', '=', 'joboffers.worker_id')
+                ->where('joboffers.users_id', '=', $user_id)
+                ->whereIn('joboffers.id', $user_offers_caught->pluck('id'))
+                ->get();
+
+            foreach ($data as $row) {
+                $row->contrat_name = auth()->user()->name;
+            }
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('contrat_name', function ($row) {
+                    return $row->contrat_name ?? '';
+                })
+                ->addColumn('worker_name', function ($row) {
+                    return $row->worker_name ?? '';
+                })
+                ->addColumn('action', function ($row) use ($user_id) {
+                    $id = $row->id;
+                    $actionBtn = '<a href="' . route('removeJob', ['id' => $id]) . '">Remover<i class="uil uil-times"></i></a>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
