@@ -145,7 +145,7 @@ class JobsController extends Controller
                 })
                 ->addColumn('action', function($row) use ($user_id) {
                     $id = $row->id;
-                    $actionBtn = '<a href="' . route('addJob', ['id' => $id, 'users_id' => $user_id]) . '" >Add<i class="uil uil-check"></i></a>';
+                    $actionBtn = '<a href="' . route('discartJob', ['id' => $id, 'users_id' => $user_id]) . '" >Remover<i class="uil uil-times"></i></a>';
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
@@ -153,6 +153,29 @@ class JobsController extends Controller
         }
     }
 
+    public function discartJob(Request $request){
+
+        $services_caught = Servicescaught::select('*')
+        ->where('id', $request->id)
+        ->first();
+
+        $joboffer = new Joboffers([
+            'users_id' => $services_caught->users_id,
+            'services_id' => $services_caught->services_id,
+            'addresses_id' => $services_caught->address_id,
+            'data' => $services_caught->data,
+            'value' => $services_caught->value,
+            'description' => $services_caught->description
+        ]);
+
+        $joboffer->save();
+
+        DB::table('servicescaughts')
+            ->where('id', $request->id)
+            ->delete();
+
+        return redirect()->back();
+    }
 
     public function youracceptAjaxDataTables(Request $request)
     {
@@ -189,14 +212,13 @@ class JobsController extends Controller
                 })
                 ->addColumn('action', function ($row) use ($user_id) {
                     $id = $row->id;
-                    $actionBtn = '<a href="' . route('removeJob', ['id' => $id]) . '">Remover<i class="uil uil-times"></i></a>';
+                    $actionBtn = '<a href="' . route('discartJob', ['id' => $id]) . '">Remover<i class="uil uil-times"></i></a>';
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
     }
-
 
     /**
      * Show the form for creating a new resource.
