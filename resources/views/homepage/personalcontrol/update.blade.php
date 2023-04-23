@@ -57,7 +57,7 @@
                 <tr class="sizeimg havethis">
                     <td>{{ $value->name }}</td>
                     <td class="fiximg">
-                        <a href="{{ route('delete', ['services_id' => $value->id, 'users_id' => auth()->user()->id]) }}">Remover<i class="uil uil-times"></i></a>
+                        <a href="{{ route('delete', ['services_id' => $value->id, 'users_id' => auth()->user()->id]) }}">Excluir<i class="uil uil-times"></i></a>
                     </td>
                 </tr>
             @endforeach

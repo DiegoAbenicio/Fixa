@@ -50,7 +50,7 @@
 }
 .formbtnnav{
     margin-top: 0;
-    margin-right: 3em;
+    margin-right: 1.3em;
 }
 .formbtn:hover {
     background-color: var(--primarybackground);

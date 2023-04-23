@@ -7,6 +7,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\HubController;
 use App\Http\Controllers\JobOffersController;
 use App\Http\Controllers\JobsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WorkersController;
 
 /*
@@ -29,6 +30,7 @@ Route::resource('hub', HubController::class);
 Route::resource('joboffers', JobOffersController::class);
 Route::resource('address', AddressesController::class);
 Route::resource('jobs', JobsController::class);
+Route::resource('profile', ProfileController::class);
 
 Route::get('usersjobs.ajax', [JobsController::class,'usersjobsAjaxDataTables'])->name('usersjobs.ajax');
 Route::get('anotherjobs.ajax', [JobsController::class,'anotherjobsAjaxDataTables'])->name('anotherjobs.ajax');

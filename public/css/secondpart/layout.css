@@ -14,8 +14,6 @@ body {
   overflow: hidden;
   transition: max-width 1s ease-in-out;
 }
-
-
 @keyframes slideLeft {
   0% {
     transform: translateX(100%);
@@ -90,7 +88,16 @@ body {
     background-color: var(--primarybackground);
     border-radius: 50px;
 }
-
 input[type="search"]::-webkit-search-cancel-button {
     display: none;
+}
+.jobstyle{
+    color: var(--primarycolor) !important;
+    font-size: 15px;
+}
+.jobstyle:hover{
+    color: var(--secundarycolor) !important;
+}
+.blackbox button:hover{
+    background-color: var(--secundarybackground);
 }

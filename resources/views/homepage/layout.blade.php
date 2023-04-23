@@ -44,7 +44,7 @@
             <ul class="navbar-nav mb-2 mb-lg-0">
                 @if (auth()->check())
                     <li class="nav-item">
-                        <a class="nav-link constructor-icon" href="{{ route('jobs.index') }}">><i class="input-icon uil uil-constructor icons "></i></a>
+                        <a class="nav-link constructor-icon jobstyle input-icon uil uil-constructor" href="{{ route('jobs.index') }}"> Trabalhos</i></a>
                     </li>
                     @php
                         $name = auth()->user()->name;
@@ -54,8 +54,8 @@
                         <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ ucfirst(strtolower(strtok($name, ' '))) }} <img src="{{ asset('uploads/' . auth()->user()->icon) }}" class="profile-pic rounded-circle profile-hub-icon"></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="{{ route('config') }}"><i class="input-icon uil uil-user"></i>Perfil</a>
-                            <a class="dropdown-item" href="#"><i class="input-icon uil uil-question-circle"></i>Help</a>
+                            <a class="dropdown-item" href="{{ route('profile.index') }}"><i class="input-icon uil uil-user"></i>Perfil</a>
+                            <a class="dropdown-item" href="{{ route('config') }}"><i class="input-icon uil uil-setting"></i>Config</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"><i class="input-icon uil uil-sign-out-alt"></i>Sair</a>
                         </div>
                     </div>
@@ -67,6 +67,14 @@
                             <button  href="submit" class="formbtn formbtnnav" >Login</button>
                         </div>
                     </form>
+                    </li>
+                    <li>
+                        <form action="{{route('movetoregister')}}" method="GET" enctype="multipart/form-data">
+                            @csrf
+                            <div class="loginbox">
+                                <button  href="submit" class="formbtn formbtnnav" >Registrar</button>
+                            </div>
+                        </form>
                     </li>
                 @endif
             </ul>
@@ -82,10 +90,20 @@
                 <div class="imgcenter">
                     <img src="{{ asset('img/please.jpg') }}" class="img-fluid">
                     <div class="btncenter">
-                        <form action="{{route('movetologin')}}" method="GET" enctype="multipart/form-data">
-                            @csrf
-                            <button  href="submit" class="formbtn" >Login</button>
-                        </form>
+                        <div class="form-row col-md-12">
+                            <div class="form-group col-md-6">
+                                <form action="{{route('movetologin')}}" method="GET" enctype="multipart/form-data">
+                                    @csrf
+                                    <button  href="submit" class="formbtn" >Login</button>
+                                </form>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <form action="{{route('movetoregister')}}" method="GET" enctype="multipart/form-data">
+                                    @csrf
+                                    <button  href="submit" class="formbtn" >Registrar</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
             </div>
             </div>
