@@ -61,8 +61,6 @@
                     </td>
                 </tr>
             @endforeach
-
-
             @foreach ($service as $key => $value)
                 <tr class="sizeimg dontthis">
                     <td>{{ $value->name }}</td>

@@ -12,6 +12,7 @@
   <link href="{{ asset('css/secondpart/hub.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/secondpart/update.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('css/secondpart/jobs.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/secondpart/profile.css') }}" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="{{ asset('img/logo.jpg') }}">
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
@@ -54,7 +55,7 @@
                         <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ ucfirst(strtolower(strtok($name, ' '))) }} <img src="{{ asset('uploads/' . auth()->user()->icon) }}" class="profile-pic rounded-circle profile-hub-icon"></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="{{ route('profile.index') }}"><i class="input-icon uil uil-user"></i>Perfil</a>
+                            <a class="dropdown-item" href="{{ route('profile.login') }}"><i class="input-icon uil uil-user"></i>Perfil</a>
                             <a class="dropdown-item" href="{{ route('config') }}"><i class="input-icon uil uil-setting"></i>Config</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"><i class="input-icon uil uil-sign-out-alt"></i>Sair</a>
                         </div>

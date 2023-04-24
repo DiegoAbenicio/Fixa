@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -12,6 +13,25 @@ class ProfileController extends Controller
     public function index()
     {
         return view('homepage.personalcontrol.profile');
+    }
+
+    public function login(){
+        $user_id = auth()->user()->id;
+
+        $user = DB::table('users')
+            ->where('id', $user_id)
+            ->first();
+
+        $userservices = DB::table('services')
+            ->whereExists(function ($query) use ($user_id) {
+                $query->select(DB::raw(1))
+                    ->from('workers')
+                    ->whereRaw('workers.services_id = services.id')
+                    ->where('workers.users_id', $user_id);
+            })
+            ->get();
+
+        return view('homepage.personalcontrol.profile', compact('user', 'userservices'));
     }
 
     /**

@@ -1,0 +1,17 @@
+.profileinfo{
+    height: 40em;
+    margin: auto;
+    margin-top: 30px;
+    background-color: var(--secundarybackground);
+}
+.profile-page-icon{
+    width: 65%;
+}
+.descripition-area{
+    max-width: 450px;
+    background-color: var(--primarybackground);
+    margin: auto;
+    padding: 2.3%;
+    max-height: 11.5em;
+    overflow-y: auto;
+}

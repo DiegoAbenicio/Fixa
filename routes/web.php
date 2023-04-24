@@ -43,8 +43,9 @@ Route::controller(JobsController::class)->group(function(){
     Route::get('/addJob', 'addJob')->name('addJob');
     Route::get('/discartJob', 'discartJob')->name('discartJob');
 });
-
-
+Route::controller(ProfileController::class)->group(function(){
+    Route::get('/profile', 'login')->name('profile.login');
+});
 Route::controller(WorkersController::class)->group(function(){
     Route::get('/add', 'add')->name('add');
     Route::get('/delete', 'delete')->name('delete');
