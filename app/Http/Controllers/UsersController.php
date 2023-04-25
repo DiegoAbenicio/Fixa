@@ -37,9 +37,13 @@ class UsersController extends Controller
 
         $password = bcrypt($request->password);
 
+        $description = "Oi, conto com você para um serviço";
+
         $request->merge(['password' => $password]);
 
         $request->merge(['icon' => 'default_icon.jpg']);
+
+        $request->merge(['description' => $description]);
 
         try {
             Users::create($request->all());
@@ -51,7 +55,11 @@ class UsersController extends Controller
                 session()->flash('checkbox', true);
                 session()->flash('error', 'Email ou Número já cadastrado');
                 return redirect()->back();
-            } else {
+            } else if($e->getCode() == 22001){
+                session()->flash('checkbox', true);
+                session()->flash('error', 'Algum campo ultrapassou o limite');
+                return redirect()->back();
+            } else{
                 session()->flash('checkbox', true);
                 session()->flash('error', 'Erro desconhecido');
                 return redirect()->back();

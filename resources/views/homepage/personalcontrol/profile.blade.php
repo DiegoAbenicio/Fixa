@@ -23,19 +23,20 @@
                     @endforeach
                 </h6>
             </div>
-            <div class="pt-1 pl-2 form-row">
+            <div class="pt-1 pl-2 form-row col-md-12">
                 Descrição:
-                <div class="text-justify descripition-area" scrollbar>
+                <div class="descripition-area col-md-12">
 
 
-                    @if(!$user->id = auth()->id())
-                        
+                    @if($user->id = auth()->id())
+                        <form action="">
+                            @csrf
+                            <textarea class="form-control textspace" name="description" id="description" >{{ $user->description }}</textarea>
+                            <button>Salvar</button>
+                        </form>
                     @else
                         <p>
-                            Donec bibendum neque a metus viverra suscipit. In accumsan luctus suscipit.
-                            Proin et massa libero. Nunc et leo mollis, semper elit vel, dictum enim.
-                            In nec gravida lacus. Praesent cursus, enim sit amet lobortis pellentesque, leo augue semper ex,
-                            sed semper quam velit vitae ipsum. Vestibulum quis ipsum sit amet nisi euismod accumsan.
+                            {{ $user->description }}
                         </p>
                     @endif
                 </div>
