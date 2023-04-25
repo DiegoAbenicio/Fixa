@@ -26,12 +26,18 @@
             <div class="pt-1 pl-2 form-row">
                 Descrição:
                 <div class="text-justify descripition-area" scrollbar>
-                    <p>
-                        Donec bibendum neque a metus viverra suscipit. In accumsan luctus suscipit.
-                        Proin et massa libero. Nunc et leo mollis, semper elit vel, dictum enim.
-                        In nec gravida lacus. Praesent cursus, enim sit amet lobortis pellentesque, leo augue semper ex,
-                        sed semper quam velit vitae ipsum. Vestibulum quis ipsum sit amet nisi euismod accumsan.
-                    </p>
+
+
+                    @if(!$user->id = auth()->id())
+                        
+                    @else
+                        <p>
+                            Donec bibendum neque a metus viverra suscipit. In accumsan luctus suscipit.
+                            Proin et massa libero. Nunc et leo mollis, semper elit vel, dictum enim.
+                            In nec gravida lacus. Praesent cursus, enim sit amet lobortis pellentesque, leo augue semper ex,
+                            sed semper quam velit vitae ipsum. Vestibulum quis ipsum sit amet nisi euismod accumsan.
+                        </p>
+                    @endif
                 </div>
             </div>
 
@@ -39,7 +45,7 @@
     </div>
     <div class="form-row col-md-7 profileinfo">
         <div class="form-group">
-            
+
         </div>
     </div>
 </div>

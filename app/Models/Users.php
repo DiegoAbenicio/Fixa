@@ -12,7 +12,8 @@ class Users extends Authenticatable
         'email',
         'password',
         'number',
-        'icon'
+        'icon',
+        'description'
     ];
 
     // Define as colunas que não podem ser atribuídas em massa
