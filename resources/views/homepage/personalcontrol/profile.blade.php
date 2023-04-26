@@ -29,10 +29,11 @@
 
 
                     @if($user->id = auth()->id())
-                        <form action="">
+                        <form class="was-validate" action="{{ route('profile.attDescription')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <textarea class="form-control textspace" name="description" id="description" >{{ $user->description }}</textarea>
-                            <button>Salvar</button>
+                            <input type="hidden" id="users_id" name="users_id" value="{{ auth()->user()->id }}">
+                            <button type="submit" class="formbtn changeback">Salvar</button>
                         </form>
                     @else
                         <p>

@@ -12,9 +12,13 @@
     background-color: var(--primarybackground);
     margin: auto;
     padding: 2.3%;
-    max-height: 10.5em;
+    margin-bottom: 0px;
+    max-height: 11.5em;
 }
 .descripition-area .textspace{
     font-size: 14px;
     color: var(--primarycolor) !important;
+    height: 10px !important;
+    min-height: 110px;
+    max-height: 110px;
 }

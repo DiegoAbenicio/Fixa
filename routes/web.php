@@ -45,6 +45,7 @@ Route::controller(JobsController::class)->group(function(){
 });
 Route::controller(ProfileController::class)->group(function(){
     Route::get('/profile', 'login')->name('profile.login');
+    Route::post('/attDescription', 'attDescription')->name('profile.attDescription');
 });
 Route::controller(WorkersController::class)->group(function(){
     Route::get('/add', 'add')->name('add');

@@ -19,7 +19,7 @@
                         @endforeach
                     </select>
                 @else
-                    <input type="text" class="form-control" placeholder="Cadastre um endereço no seu perfil" disabled>
+                    <input type="text" class="form-control" placeholder="Cadastre um endereço na sua config" disabled>
                 @endif
             </div>
             <div class="form-group col-md-4">

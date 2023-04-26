@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,8 +16,9 @@ class ProfileController extends Controller
         return view('homepage.personalcontrol.profile');
     }
 
-    public function login(){
-        $user_id = auth()->user()->id;
+    public function login(Request $request){
+
+        $user_id = $request->users_id;
 
         $user = DB::table('users')
             ->where('id', $user_id)
@@ -32,6 +34,15 @@ class ProfileController extends Controller
             ->get();
 
         return view('homepage.personalcontrol.profile', compact('user', 'userservices'));
+
+    }
+
+    public function attDescription(Request $request){
+        $users = Users::find($request->users_id);
+        $users->description = $request->description;
+        $users->save();
+
+        return redirect()->back();
     }
 
     /**

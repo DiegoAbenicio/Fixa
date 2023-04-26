@@ -55,7 +55,7 @@
                         <a class="nav-link active dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ ucfirst(strtolower(strtok($name, ' '))) }} <img src="{{ asset('uploads/' . auth()->user()->icon) }}" class="profile-pic rounded-circle profile-hub-icon"></a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="{{ route('profile.login') }}"><i class="input-icon uil uil-user"></i>Perfil</a>
+                            <a class="dropdown-item" href="{{ route('profile.login', ['users_id' => auth()->user()->id]) }}"><i class="input-icon uil uil-user"></i>Perfil</a>
                             <a class="dropdown-item" href="{{ route('config') }}"><i class="input-icon uil uil-setting"></i>Config</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"><i class="input-icon uil uil-sign-out-alt"></i>Sair</a>
                         </div>
