@@ -47,7 +47,9 @@
     </div>
     <div class="form-row col-md-7 profileinfo">
         <div class="form-group">
-
+            <div class="ml-3 mt-2">
+                Comentarios:
+            </div>
         </div>
     </div>
 </div>

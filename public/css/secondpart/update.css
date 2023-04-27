@@ -120,3 +120,6 @@ table .sizeimg .fiximg{
     max-height: 8em !important;
     overflow-y: auto;
 }
+.profile-pic:hover{
+    filter: blur(3px);
+}
